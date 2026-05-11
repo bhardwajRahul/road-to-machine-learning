@@ -14,7 +14,7 @@ Complete guide to Python fundamentals needed for machine learning and data scien
 - [Functions](#functions)
 - [Data Structures](#data-structures)
 - [File I/O](#file-io)
-- [Read position (`tell` and `seek`)](#read-position-tell-and-seek)
+- [Tell, seek, and read position](#tell-seek-and-read-position)
 - [Error Handling](#error-handling)
 - [Object-Oriented Programming](#object-oriented-programming)
 - [Practice Exercises](#practice-exercises)
@@ -832,7 +832,7 @@ with open("output.csv", "w", newline="") as file:
     writer.writerow(["Alice", 25, "New York"])
 ```
 
-### Read position (`tell` and `seek`)
+### Tell, seek, and read position
 
 Text files are read sequentially. **`tell()`** returns the current byte offset in the file; **`seek(offset, whence)`** moves that position (`whence`: `0` start, `1` current, `2` end).
 
@@ -850,7 +850,7 @@ with open("data.txt", "r") as f:
     print(f.read())     # full file
 ```
 
-Use `tell`/`seek` when you re-read parts of a file, build random-access parsers, or implement **practice problems based on file handling** (e.g., jump to a scene marker in a script file).
+Use `tell` / `seek` when you re-read parts of a file, build random-access parsers, or implement **practice problems based on file handling** (e.g., jump to a scene marker in a script file).
 
 ---
 

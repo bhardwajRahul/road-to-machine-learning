@@ -1,6 +1,0 @@
-#!/bin/sh
-# Remove Co-authored-by trailer lines (often added by IDE agents) from the commit message.
-msg="$1"
-[ -n "$msg" ] && [ -f "$msg" ] || exit 0
-grep -v '^Co-authored-by:' "$msg" >"$msg.$$" && mv "$msg.$$" "$msg"
-exit 0

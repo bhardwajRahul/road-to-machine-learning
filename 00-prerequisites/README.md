@@ -20,7 +20,7 @@ Learn Python from scratch—structured as **AI programming with Python**: core s
 - Functions and functional programming; `*args` / `**kwargs`; nested functions and scope
 - Introduction to OOP: classes and objects; class and object theory; class and object implementation
 - Iterators and generators (memory-efficient processing; connects to ML data pipelines); lambda functions; `map`, `filter`, and `reduce`
-- File handling: text and binary I/O; read position (`tell`, `seek`); context managers (`with`); JSON and pickle (tradeoffs vs human-readable formats)
+- File handling: text and binary I/O; read position with `tell` / `seek`; context managers (`with`); JSON and pickle (tradeoffs vs human-readable formats)
 - Decorators; namespaces and the LEGB scope rule
 - Inheritance and polymorphism; encapsulation and abstraction
 - Practice problems based on file handling

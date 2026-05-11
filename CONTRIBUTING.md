@@ -36,13 +36,9 @@ If you find a bug, have a suggestion, or want to request a feature:
 6. **Push** to your branch (`git push origin feature/amazing-feature`)
 7. **Open a Pull Request**
 
-### Git hooks (optional, one command per clone)
+### Commit messages before you push
 
-This repository ships a `commit-msg` hook that strips automatic `Co-authored-by:` lines from commit messages (so pushes stay free of tool-injected trailers). After cloning, enable hooks from the repo root:
-
-```bash
-git config core.hooksPath .githooks
-```
+Hosting sites display the message you saved at `git commit` time. Before `git push`, check the latest entry (`git log -1`) and edit with `git commit --amend` if anything looks unintended. Keep learning materials vendor-neutral. `.gitignore` hides common build and editor noise; if your local tools still create paths you never want pushed, add patterns to `.git/info/exclude` in your clone (that file is not tracked).
 
 ### Contributing Content
 

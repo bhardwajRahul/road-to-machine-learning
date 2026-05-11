@@ -63,6 +63,8 @@
 - Skills checklist for each role
 - Time estimates and learning path
 
+The [full roadmap guide](resources/career_roadmap_guide.md) follows the same **module numbering and Phase 6 vs. module 15 (time series) branch** as the [Learning Path Overview](#learning-path-overview) above.
+
 [**View Complete Career Roadmap Guide →**](resources/career_roadmap_guide.md)
 
 ## Table of Contents
@@ -124,7 +126,7 @@ Structured courses (university terms, bootcamps, or long-form playlists) usually
   - Functions and functional programming; `*args` / `**kwargs`; nested functions and scope
   - Introduction to OOP: classes and objects; methods; magic methods; inheritance, polymorphism, encapsulation, abstraction
   - Iterators and generators; lambda functions; `map`, `filter`, and `reduce`
-  - File handling: text and binary I/O; read position (`tell`, `seek`); context managers (`with`); JSON and pickle (when each is appropriate)
+  - File handling: text and binary I/O; read position with `tell` / `seek`; context managers (`with`); JSON and pickle (when each is appropriate)
   - Decorators; namespaces and the LEGB scope rule
   - Practice problems based on file handling
   - Exceptions: `try` / `except` / `else` / `finally`; specific errors, `raise`, and custom exception types

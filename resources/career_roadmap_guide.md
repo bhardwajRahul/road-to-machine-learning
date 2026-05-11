@@ -2,6 +2,8 @@
 
 This guide provides clear, role-specific learning paths for different careers in data science and machine learning. Each path includes recommended modules, projects, and resources tailored to the specific role.
 
+**Canonical phase order and the module 15 (time series) branch** match the root [README](../README.md#learning-path-overview): Phase 6 is vision & language (**11–12**); **15** is an optional parallel track, not part of that phase label.
+
 ## Table of Contents
 
 - [Data Analyst](#data-analyst)
@@ -446,12 +448,13 @@ This guide provides clear, role-specific learning paths for different careers in
 | **Advanced ML** | 06-07 | Ensembles, Feature Engineering | 2-3 months |
 | **Unsupervised Learning** | 08 | Clustering, Dimensionality Reduction | 1-2 months |
 | **Deep Learning** | 09-10 | Neural Networks, PyTorch, TensorFlow | 2-3 months |
-| **Specialized DL** | 11-12, 15 | Computer Vision, NLP, Time Series | 6-8 months |
+| **Specialized DL** | 11-12 | Computer Vision, NLP | 5-7 months |
+| **Time series (branch)** | 15 | Forecasting, sequence models (parallel to or after DL) | 0.5-1 month |
 | **Generative AI** | 25 | Modern LLMs, RAG, AI Agents, Multi-Agent Systems | 1-2 months |
 | **Advanced Specialized** | 22-24 | Reinforcement Learning, Graph Neural Networks, Audio/Speech | 2-3 months |
 | **Production** | 13-14 | Model Deployment, MLOps | 3-4 months |
 | **Essential Skills** | 19-21 | SQL, Imbalanced Data, Explainability | 2-3 months |
-| **Total** | **20 modules** | **Complete Path** | **25-38 months** |
+| **Total** | **23 modules** | **Complete Path** | **25-38 months** |
 
 ### Essential Modules
 
@@ -645,7 +648,7 @@ This guide provides clear, role-specific learning paths for different careers in
 
 ## Research Scientist
 
-**Role Focus**: Conduct research, develop new algorithms, publish papers, and push the boundaries of ML/AI. Deep theoretical understanding required.
+**Role Focus**: Novel methods, careful experiments, and clear write-ups—plus the depth to read papers, reproduce results, and contribute new ideas. Conduct research, develop algorithms, and push boundaries of ML/AI; strong theory and coding both matter.
 
 ### Core Learning Path
 
@@ -657,11 +660,12 @@ This guide provides clear, role-specific learning paths for different careers in
 | **Advanced ML** | 06-07 | Advanced Algorithms, Theory | 2-3 months |
 | **Unsupervised Learning** | 08 | Advanced Clustering, Dimensionality Reduction | 2-3 months |
 | **Deep Learning** | 09-10 | Neural Networks, Frameworks | 3-4 months |
-| **Specialized DL** | 11-12, 15 | Computer Vision, NLP, Time Series | 6-8 months |
+| **Specialized DL** | 11-12 | Computer Vision, NLP | 5-7 months |
+| **Time series (branch)** | 15 | Forecasting, temporal evaluation (optional but common in applied research) | 0.5-1 month |
 | **Generative AI** | 25 | Modern LLMs, RAG, AI Agents, Multi-Agent Systems | 1-2 months |
 | **Advanced Specialized** | 22-24 | Reinforcement Learning, Graph Neural Networks, Audio/Speech | 2-3 months |
 | **Essential Skills** | 19-21 | SQL, Explainability | 1-2 months |
-| **Total** | **17 modules** | **Complete Path** | **24-34 months** |
+| **Total** | **20 modules** | **Complete Path** | **24-34 months** |
 
 ### Essential Modules
 
@@ -793,7 +797,7 @@ This guide provides clear, role-specific learning paths for different careers in
 | **AI Engineer** | Generalist AI | ML, DL, CV, NLP | Multi-domain Projects |
 | **Data Engineer** | Data Infrastructure | ETL, Databases, Spark | Data Pipelines, Warehouses |
 | **MLOps Engineer** | ML Operations | CI/CD, Monitoring, Infrastructure | ML Infrastructure, CI/CD |
-| **Research Scientist** | Research & Innovation | Theory, Math, Research | Research Projects, Papers |
+| **Research Scientist** | Novel methods, experiments, write-ups | Theory, Math, Research | Research Projects, Papers |
 | **BI Analyst** | Business Intelligence | Visualization, Reporting | Dashboards, Business Reports |
 
 ---
