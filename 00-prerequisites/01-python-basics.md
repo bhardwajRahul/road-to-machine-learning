@@ -1,6 +1,6 @@
 # Python Basics for Machine Learning
 
-Complete guide to Python fundamentals needed for machine learning and data science.
+Complete guide to Python fundamentals needed for machine learning and data science—**AI programming with Python**: syntax, functional patterns, OOP, files, and exceptions.
 
 ## Table of Contents
 
@@ -14,9 +14,11 @@ Complete guide to Python fundamentals needed for machine learning and data scien
 - [Functions](#functions)
 - [Data Structures](#data-structures)
 - [File I/O](#file-io)
+- [Read position (`tell` and `seek`)](#read-position-tell-and-seek)
 - [Error Handling](#error-handling)
 - [Object-Oriented Programming](#object-oriented-programming)
 - [Practice Exercises](#practice-exercises)
+- [Capstone: Movie script generator](#capstone-movie-script-generator)
 
 ---
 
@@ -671,6 +673,12 @@ print(squared)  # Output: [1, 4, 9, 16, 25]
 
 evens = list(filter(lambda x: x % 2 == 0, numbers))
 print(evens)  # Output: [2, 4]
+
+# reduce: combine iterable into one value (from functools)
+from functools import reduce
+
+product = reduce(lambda acc, x: acc * x, numbers, 1)
+print(product)  # Output: 120 (1*2*3*4*5)
 ```
 
 ---
@@ -824,6 +832,26 @@ with open("output.csv", "w", newline="") as file:
     writer.writerow(["Alice", 25, "New York"])
 ```
 
+### Read position (`tell` and `seek`)
+
+Text files are read sequentially. **`tell()`** returns the current byte offset in the file; **`seek(offset, whence)`** moves that position (`whence`: `0` start, `1` current, `2` end).
+
+```python
+with open("data.txt", "w+") as f:
+    f.write("Hello ML")
+    f.seek(0)           # back to start for reading
+    print(f.read())   # Hello ML
+    print(f.tell())   # position after read (end of file)
+
+with open("data.txt", "r") as f:
+    chunk = f.read(5)   # first 5 characters
+    print(f.tell())     # 5
+    f.seek(0)           # jump to beginning again
+    print(f.read())     # full file
+```
+
+Use `tell`/`seek` when you re-read parts of a file, build random-access parsers, or implement **practice problems based on file handling** (e.g., jump to a scene marker in a script file).
+
 ---
 
 ## Error Handling
@@ -848,14 +876,24 @@ except ZeroDivisionError:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-# Finally block (always executes)
+# Else: runs only if no exception was raised in try
+try:
+    value = int("42")
+except ValueError:
+    print("Not an integer")
+else:
+    print(f"Parsed OK: {value}")
+
+# Finally: always runs (cleanup); use with open() when possible
+file = None
 try:
     file = open("data.txt", "r")
     content = file.read()
 except FileNotFoundError:
     print("File not found")
 finally:
-    file.close()  # Always close file
+    if file is not None:
+        file.close()
 ```
 
 ### Raising Exceptions
@@ -926,6 +964,27 @@ dog = Dog("Buddy")
 
 print(cat.speak())  # Output: Whiskers says Meow
 print(dog.speak())  # Output: Buddy says Woof
+```
+
+### Polymorphism
+
+The same interface (e.g., method name `speak`) behaves differently per type—shown above where `Cat` and `Dog` override `speak`. You can write functions that accept any `Animal` without knowing the concrete class.
+
+### Encapsulation and abstraction
+
+- **Encapsulation**: Bundle data and behavior in a class; hide internal state with conventions (single leading `_balance`) or descriptors; expose only methods you want callers to use.
+- **Abstraction**: Model real-world ideas with simple interfaces (`deposit`, `withdraw`) while hiding implementation details.
+
+```python
+class Counter:
+    def __init__(self):
+        self._count = 0  # "protected" by convention
+
+    def increment(self):
+        self._count += 1
+
+    def value(self):
+        return self._count
 ```
 
 ---
@@ -1033,6 +1092,130 @@ print(account.deposit(500))   # Output: Deposited $500. New balance: $1500
 print(account.withdraw(200))  # Output: Withdrew $200. New balance: $1300
 print(account.get_balance())  # Output: Account 12345 balance: $1300
 ```
+
+---
+
+## Capstone: Movie script generator
+
+Combine variables, control flow, lists/dictionaries, file I/O (including optional `seek`/`tell` for acts or scenes), and optionally classes (e.g., `Scene`, `Character`) to build a **movie script generator** that:
+
+1. Reads templates or character bios from text/CSV files
+2. Fills dialogue or stage directions from structured data or random pools
+3. Writes a formatted script to a new `.txt` or `.fountain` file
+
+This reinforces **file handling** and **practice problems based on file handling** before you move on to NumPy-heavy work.
+
+### Runnable example (CSV in → script out)
+
+This example uses a **temporary folder** so you can run it anywhere. It writes a small `characters.csv`, reads it back, picks random lines, and writes `screenplay.txt`. It also shows **`tell` / `seek`** when re-reading the start of the CSV after the first pass.
+
+```python
+import csv
+import random
+import tempfile
+from pathlib import Path
+
+
+def write_sample_cast_csv(path: Path) -> None:
+    """Create a tiny cast file (what you might edit by hand)."""
+    rows = [
+        {"name": "Dr. Vega", "role": "scientist", "trait": "sarcastic"},
+        {"name": "Unit 7", "role": "robot", "trait": "literal-minded"},
+        {"name": "Mara", "role": "pilot", "trait": "reckless"},
+    ]
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["name", "role", "trait"])
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def load_cast(path: Path) -> list[dict]:
+    with path.open("r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        return list(reader)
+
+
+def peek_file_start(path: Path, n_bytes: int = 80) -> bytes:
+    """Demonstrate tell/seek: read a slice from the beginning without loading whole file."""
+    with path.open("rb") as f:
+        snippet = f.read(n_bytes)
+        pos = f.tell()
+        f.seek(0)
+        again = f.read(n_bytes)
+    assert snippet == again
+    return snippet
+
+
+def random_line(pool: list[str]) -> str:
+    return random.choice(pool)
+
+
+def build_script(cast: list[dict], out_path: Path) -> None:
+    establishing = [
+        "INT. RESEARCH LAB - NIGHT",
+        "INT. STARSHIP BRIDGE - DAWN",
+        "EXT. CRATER RIM - DAY",
+    ]
+    beats = [
+        "A console blinks red. Nobody wants to be the first to speak.",
+        "The ship shudders. Something massive passes the viewport.",
+        "Silence, except for the hum of cooling fans.",
+    ]
+
+    lines_out: list[str] = []
+    lines_out.append("TITLE: AUTOGENERATED SHORT")
+    lines_out.append("")
+    lines_out.append(random_line(establishing))
+    lines_out.append("")
+    lines_out.append(random_line(beats))
+    lines_out.append("")
+
+    for person in cast:
+        name = person["name"]
+        trait = person["trait"]
+        dialogue = random_line(
+            [
+                f"We are not paid enough for this, {trait} or not.",
+                "Run the diagnostic again. I do not trust that reading.",
+                "If we survive, I am never flying coach again.",
+            ]
+        )
+        lines_out.append(f"{name.upper()}")
+        lines_out.append(f"    ({trait})")
+        lines_out.append(f"    {dialogue}")
+        lines_out.append("")
+
+    text = "\n".join(lines_out)
+    try:
+        out_path.write_text(text, encoding="utf-8")
+    except OSError as e:
+        print(f"Could not write script: {e}")
+    else:
+        print(f"Wrote {out_path} ({len(text)} characters)")
+    finally:
+        # Placeholder for cleanup (e.g., close remote handles); with Path.write_text nothing to close
+        pass
+
+
+def main() -> None:
+    work = Path(tempfile.mkdtemp(prefix="movie_script_demo_"))
+    csv_path = work / "characters.csv"
+    script_path = work / "screenplay.txt"
+
+    write_sample_cast_csv(csv_path)
+    raw_head = peek_file_start(csv_path)
+    print("First bytes of CSV (tell/seek demo):", raw_head[:40], "...")
+
+    cast = load_cast(csv_path)
+    random.seed()  # omit for reproducible demos: set random.seed(0)
+    build_script(cast, script_path)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**Try extending it:** add a `Scene` class with `title` and `lines` list, read act markers from a second file and use `seek` to jump between sections, or swap the CSV for JSON.
 
 ---
 
