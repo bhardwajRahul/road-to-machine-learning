@@ -877,7 +877,7 @@ Follow my curated ML playlist for guided video walkthroughs:
 - [Road to Machine Learning Playlist](https://www.youtube.com/watch?v=WHFYUA7F9jk&list=PLCAuWzdnX8zJZhdnHPYMTE5g-CRtgD44X)
 
 ### Career & Interview Resources
-- [Career Roadmap Guide](resources/career_roadmap_guide.md) - **Role-specific learning paths**: Data Analyst, Data Scientist, ML Engineer, LLM Engineer, Computer Vision Engineer, AI Engineer, Data Engineer, MLOps Engineer, Research Scientist, BI Analyst
+- [Career Roadmap Guide](resources/career_roadmap_guide.md) - **Role-specific learning paths**: Data Analyst, Data Scientist, ML Engineer, LLM Engineer, GenAI Solution Architect, Computer Vision Engineer, AI Engineer, Data Engineer, MLOps Engineer, Research Scientist, BI Analyst
 - [Career & Portfolio Guide](resources/career_portfolio.md) - Build your portfolio, prepare for interviews, and launch your ML career
 - [Interview Preparation Guide](resources/interview_prep.md) - ML interview questions, coding challenges, system design, and preparation strategies
 - [Open Source Contribution Guide](resources/open_source_contribution.md) - How to contribute to open source projects in data science and ML
