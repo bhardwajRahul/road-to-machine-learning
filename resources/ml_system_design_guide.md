@@ -5,12 +5,21 @@ Complete guide to designing scalable, production-ready machine learning systems.
 ## Table of Contents
 
 - [Introduction to ML System Design](#introduction-to-ml-system-design)
+- [Real-World Systems You Are Designing For](#real-world-systems-you-are-designing-for)
+- [End-to-End ML Lifecycle](#end-to-end-ml-lifecycle)
+- [Requirements, SLAs, and Capacity](#requirements-slas-and-capacity)
 - [Core Concepts](#core-concepts)
+- [Training vs Inference & Train–Serve Skew](#training-vs-inference--trainserve-skew)
 - [Scalability Patterns](#scalability-patterns)
 - [Data Infrastructure](#data-infrastructure)
 - [Model Serving Architecture](#model-serving-architecture)
+- [RAG & LLM-Oriented Serving](#rag--llm-oriented-serving)
 - [High Availability & Reliability](#high-availability-reliability)
-- [Monitoring & Observability](#monitoring-observability)
+- [Monitoring: Metrics, Logs & Traces](#monitoring--observability)
+- [Data Drift & Data Quality](#data-drift-labels-and-data-quality)
+- [Security, Privacy & Compliance](#security-privacy--compliance)
+- [Testing & Safe Rollouts](#testing--safe-rollouts)
+- [Interview & Design-Review Checklist](#interview--design-review-checklist)
 - [Best Practices](#best-practices)
 - [Resources](#resources)
 
@@ -41,6 +50,64 @@ Complete guide to designing scalable, production-ready machine learning systems.
 - **Data Dependencies**: Models depend on training data
 - **Non-Deterministic**: Model performance can degrade
 - **Resource Intensive**: GPU/CPU requirements vary
+
+---
+
+## Real-World Systems You Are Designing For
+
+These patterns show up in interviews and on the job. Each stresses different parts of the stack.
+
+| Scenario | What “good” looks like | Typical bottlenecks |
+|----------|------------------------|---------------------|
+| **Card-not-present fraud score** | Sub-100 ms synchronous score; explainable reason codes; audit trail | Feature lookup from many sources; model size; cold start |
+| **Homepage / feed ranking** | High throughput; graceful fallback if the ranker is slow | Embedding service; cache; fan-out to many candidates |
+| **Document Q&A (RAG)** | Grounded answers; citations; controllable cost | Vector search latency; chunking; LLM token budget |
+| **Batch credit risk** | Nightly run completes in window; reproducible artifacts | Data volume; orchestration; backfills |
+| **Vision on the edge** | Low power; offline; stable latency | Model size; quantization; OTA updates |
+
+**Takeaway:** the *same* ML model can be “fine” in Jupyter and “wrong” in production if data paths, latency budgets, and failure modes were never designed.
+
+---
+
+## End-to-End ML Lifecycle
+
+Think in **pipelines**, not files: data moves through stages; each stage has inputs, outputs, owners, and failure behavior.
+
+```
+Business goal → Data sources → Ingestion & storage
+      → Feature engineering (batch / stream)
+      → Training & evaluation → Model registry
+      → Deployment (canary / shadow) → Online serving
+      → Monitoring (latency, errors, drift) → Retrain / rollback
+```
+
+**Concrete example — “overnight risk refresh”:** A retail bank retrains a delinquency model weekly. Raw payments land in a **data lake**; **Spark** builds training rows; **MLflow** stores metrics and the `model.pkl` artifact; **Airflow** triggers training; on success, a new version is registered and **10% canary** traffic is switched before full promotion. If **population drift** spikes, an alert opens a ticket and traffic rolls back to `v3.2`.
+
+**Concrete example — “live product search”:** Queries hit an **API gateway** → **spell-check + language detect** → **retrieval** (BM25 + vector) → **reranker model** on top-50 candidates → JSON response in &lt;200 ms p95. Caches store hot queries; a **static fallback** returns popularity-sorted results if the ranker times out.
+
+---
+
+## Requirements, SLAs, and Capacity
+
+Before drawing boxes, write down **non-functional requirements (NFRs)**:
+
+- **Latency:** p50 / p95 / p99 targets (users feel p95, finance cares about p99).
+- **Throughput:** peak RPS, burst multiplier (e.g. 3× average for 5 minutes).
+- **Availability:** “three nines” (99.9%) ≈ 43 minutes downtime/month — budget error budgets accordingly.
+- **Correctness / safety:** human-in-the-loop? rate limits? idempotency keys for payments?
+- **Cost:** $/1k requests, GPU hours/month, egress fees.
+
+### Back-of-the-envelope capacity (napkin math)
+
+Suppose one CPU worker handles **20 inferences/s** at comfortable utilization, and you need **2 000 RPS** sustained.
+
+```
+Workers needed ≈ 2000 / 20 ≈ 100 workers
+```
+
+Add **headroom** (+30–50%) for bursts and deploy failures. If each worker uses **2 GB RAM**, you need **~200–300 GB** total addressable memory across the fleet (before replicas for HA).
+
+This is not a substitute for load tests — it tells you whether your architecture is in the right **order of magnitude**.
 
 ---
 
@@ -172,6 +239,70 @@ model = DataParallel(model, device_ids=[0, 1, 2, 3])
 - Higher batch size → Higher throughput, Higher latency
 - Lower batch size → Lower throughput, Lower latency
 - Need to balance based on use case
+
+---
+
+## Training vs Inference & Train–Serve Skew
+
+**Training** optimizes parameters on historical data (often batch, high throughput, minutes to hours). **Inference** applies fixed parameters to live requests (often low latency, milliseconds unless batch scoring).
+
+**Train–serve skew** means “the model sees a different distribution or encoding at serve time than during training.” Classic causes:
+
+| Cause | Real-life symptom | Mitigation |
+|-------|-------------------|------------|
+| Different preprocessing code paths | Sudden accuracy drop after deploy | Shared transformation library (same code in train & serve) |
+| Missing default for new categorical level | `NaN` features at runtime | Explicit “unknown” bucket seen in training |
+| Point-in-time leakage in training labels | Great offline metrics, bad online | As-of joins; hold-out by time |
+| Different scaling (mean/std) | Drift in feature magnitudes | Store scaler params with the model artifact; version together |
+
+**Minimal pattern — bundle transforms with the model:**
+
+```python
+# training_pipeline.py — simplified: one object knows how to featurize + predict
+import json
+from pathlib import Path
+
+import joblib
+
+
+class ChurnModelPackage:
+    """Ship preprocessing + model as one unit to reduce skew."""
+
+    def __init__(self, model, feature_names, impute_values):
+        self.model = model
+        self.feature_names = feature_names
+        self.impute_values = impute_values
+
+    def featurize(self, raw: dict) -> list[float]:
+        row = []
+        for name in self.feature_names:
+            v = raw.get(name)
+            if v is None or v == "":
+                v = self.impute_values.get(name, 0.0)
+            row.append(float(v))
+        return row
+
+    def predict_proba(self, raw: dict) -> float:
+        x = [self.featurize(raw)]
+        return float(self.model.predict_proba(x)[0, 1])
+
+    def save(self, path: Path) -> None:
+        path.mkdir(parents=True, exist_ok=True)
+        joblib.dump(self.model, path / "model.joblib")
+        meta = {"feature_names": self.feature_names, "impute_values": self.impute_values}
+        (path / "metadata.json").write_text(json.dumps(meta))
+
+    @classmethod
+    def load(cls, path: Path) -> "ChurnModelPackage":
+        model = joblib.load(path / "model.joblib")
+        meta = json.loads((path / "metadata.json").read_text())
+        return cls(model, meta["feature_names"], meta["impute_values"])
+
+
+# Example: same class imported in training notebook and in FastAPI service
+```
+
+**Feature store (idea):** offline jobs write **training snapshots**; online path reads **low-latency feature vectors** keyed by `user_id` or `session_id`. Stores like Feast, Tecton, or in-house Redis+SQL combinations exist to keep **one definition** of “7-day spend” for train and serve.
 
 ---
 
@@ -383,27 +514,36 @@ def invalidate_model_cache(model_version):
 - Stateless services
 - Cost-effective at scale
 
-**Implementation:**
-```python
-# Kubernetes horizontal scaling
+**Implementation (Kubernetes — YAML, not Python):**
+
+```yaml
+# deployment.yaml — stateless inference replicas
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ml-api
 spec:
-  replicas: 3  # Start with 3 instances
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ml-api
   template:
+    metadata:
+      labels:
+        app: ml-api
     spec:
       containers:
-      - name: ml-api
-        image: ml-api:latest
-        resources:
-          requests:
-            cpu: "500m"
-            memory: "1Gi"
-          limits:
-            cpu: "2000m"
-            memory: "4Gi"
+        - name: ml-api
+          image: ghcr.io/your-org/ml-api:1.4.2
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "2000m"
+              memory: "4Gi"
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -417,12 +557,12 @@ spec:
   minReplicas: 3
   maxReplicas: 10
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 70
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
 ```
 
 **Auto-scaling Triggers:**
@@ -563,6 +703,9 @@ import uuid
 
 class MLMessageQueue:
     def __init__(self, redis_client):
+        import time
+
+        self._time = time
         self.redis = redis_client
         self.request_queue = "ml:requests"
         self.response_queue = "ml:responses"
@@ -573,19 +716,19 @@ class MLMessageQueue:
         message = {
             'request_id': request_id,
             'features': features,
-            'timestamp': time.time()
+            'timestamp': self._time.time()
         }
         self.redis.lpush(self.request_queue, json.dumps(message))
         return request_id
     
     def get_response(self, request_id, timeout=30):
         """Get prediction response"""
-        start_time = time.time()
-        while time.time() - start_time < timeout:
+        start_time = self._time.time()
+        while self._time.time() - start_time < timeout:
             response = self.redis.get(f"ml:response:{request_id}")
             if response:
                 return json.loads(response)
-            time.sleep(0.1)
+            self._time.sleep(0.1)
         return None
 ```
 
@@ -648,22 +791,24 @@ prediction = result.get(timeout=30)
 
 **Implementation:**
 ```python
-# Stateless API service
+# Stateless API service — minimal runnable shape (adapt model load to your stack)
 from fastapi import FastAPI
+from pydantic import BaseModel
 import joblib
 
 app = FastAPI()
+model = joblib.load("model.pkl")  # loaded once at worker start
 
-# Load model at startup (shared across requests)
-model = joblib.load('model.pkl')
+
+class PredictionRequest(BaseModel):
+    features: list[float]
+
 
 @app.post("/predict")
 async def predict(request: PredictionRequest):
-    """Stateless prediction endpoint"""
-    # No state stored between requests
-    features = request.features
-    prediction = model.predict([features])[0]
-    return {"prediction": prediction}
+    """Each request is independent; safe to scale replicas horizontally."""
+    prediction = model.predict([request.features])[0]
+    return {"prediction": float(prediction), "model_version": "1.4.2"}
 ```
 
 ### Stateful Architecture
@@ -682,13 +827,20 @@ async def predict(request: PredictionRequest):
 ```python
 # Stateful service with session management
 from fastapi import FastAPI
+from pydantic import BaseModel
 from typing import Dict
 
 app = FastAPI()
 sessions: Dict[str, dict] = {}
 
+
+class StatefulPredictionRequest(BaseModel):
+    session_id: str
+    features: list[float]
+
+
 @app.post("/predict")
-async def predict(request: PredictionRequest):
+async def predict(request: StatefulPredictionRequest):
     """Stateful prediction with context"""
     session_id = request.session_id
     
@@ -719,6 +871,7 @@ async def predict(request: PredictionRequest):
 
 **Stateful with Redis:**
 ```python
+import json
 import redis
 
 class SessionManager:
@@ -740,6 +893,60 @@ class SessionManager:
             json.dumps(session_data)
         )
 ```
+
+---
+
+## RAG & LLM-Oriented Serving
+
+**Retrieval-Augmented Generation (RAG)** answers user questions by **(1)** retrieving relevant chunks from your docs, **(2)** stuffing them into a prompt, **(3)** asking an LLM to answer **using only that context**. In production you are really designing **three systems**: ingestion/indexing, retrieval, and generation.
+
+**Real-life shape:** Internal IT bot at a 5k-person company. PDFs and Confluence pages change daily; users expect citations. Design choices:
+
+1. **Chunking:** 300–800 tokens with overlap; store `doc_id`, `page`, `last_indexed_at` in metadata.
+2. **Vector index:** ANN index (FAISS, Qdrant, managed Pinecone, etc.) sized for recall@k and QPS; separate **staging** vs **prod** indices.
+3. **Guardrails:** max retrieved chunks, max output tokens, **timeout** then “I could not find an authoritative answer.”
+4. **Cost:** cache embeddings for stable documents; re-embed only on diff.
+
+**Tiny retrieval stub (no LLM call — shows control flow):**
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class Chunk:
+    doc_id: str
+    text: str
+    score: float
+
+
+def retrieve(query: str, index: list[Chunk], top_k: int = 5) -> list[Chunk]:
+    """Replace with vector search; keyword overlap stands in for 'similarity'."""
+    tokens = set(query.lower().split())
+    ranked = sorted(
+        index,
+        key=lambda c: len(tokens & set(c.text.lower().split())),
+        reverse=True,
+    )
+    return ranked[:top_k]
+
+
+def build_prompt(query: str, chunks: list[Chunk]) -> str:
+    context = "\n\n".join(f"[{c.doc_id}] {c.text}" for c in chunks)
+    return f"Answer using ONLY this context.\n\n{context}\n\nQuestion: {query}"
+
+
+# Example: two policy snippets and a user question
+INDEX = [
+    Chunk("policy_pto", "Employees accrue 15 PTO days per calendar year.", 0.0),
+    Chunk("policy_remote", "Remote work requires manager approval once per quarter.", 0.0),
+]
+user_q = "How many PTO days do I get?"
+prompt = build_prompt(user_q, retrieve(user_q, INDEX))
+# Next step: call your LLM API with `prompt`, temperature, and max_tokens caps.
+```
+
+**Latency budget:** If your product SLA is 3 s end-to-end, allocate explicit ceilings (e.g. retrieval 200 ms, rerank 100 ms, LLM 2.4 s) so one slow stage does not starve the others.
 
 ---
 
@@ -774,6 +981,9 @@ async def health_check():
 
 **3. Circuit Breaker:**
 ```python
+import time
+
+
 class CircuitBreaker:
     def __init__(self, failure_threshold=5, timeout=60):
         self.failure_threshold = failure_threshold
@@ -849,8 +1059,12 @@ def predict_with_fallback(features):
 
 **Monitoring Implementation:**
 ```python
-from prometheus_client import Counter, Histogram, Gauge
+import logging
 import time
+
+from prometheus_client import Counter, Histogram, Gauge
+
+logger = logging.getLogger(__name__)
 
 # Define metrics
 request_count = Counter('ml_requests_total', 'Total requests')
@@ -920,6 +1134,95 @@ async def predict(request: PredictionRequest):
         span.set_attribute("prediction", prediction)
         return {"prediction": prediction}
 ```
+
+### Data drift, labels, and data quality
+
+**Concept drift:** the world changed; the old decision boundary is wrong. **Covariate drift:** inputs shift but the conditional label distribution **P(y|x)** is still learnable with a new model. **Prior shift:** class balance changes.
+
+**Real-life:** After a holiday, e-commerce traffic spikes on gift categories. A conversion model trained on October data sees new category mix — **latency stays green** while **business metrics drop**. Fix: refresh training data, segment models by region, or add short-horizon **auto-retrain** with guardrails.
+
+**What to log for later debugging (not raw PII):** hashed user id, model version, feature schema version, bucketized feature summaries, outcome when known.
+
+**Offline vs online checks:**
+
+| Check | What it tells you |
+|-------|-------------------|
+| Hold-out by **time** | Will the model survive next week? |
+| **Backtest** on replayed traffic | Rough impact of ranking changes |
+| **Shadow** deploy (challenger gets traffic copy, no user impact) | Live latency & distribution match lab? |
+
+---
+
+## Security, Privacy & Compliance
+
+ML services are normal APIs: **validate inputs**, **authenticate callers**, **rate-limit**, and **audit** sensitive actions.
+
+- **PII in features:** minimize; tokenize; encrypt at rest; restrict log fields (GDPR/CCPA “right to erasure” applies to stored rows, not always to aggregated metrics).
+- **Model theft:** treat large proprietary checkpoints like secrets — private artifact registry, signed images, no public bucket URLs.
+- **Prompt injection (LLM/RAG):** treat user text as untrusted instructions; separate system prompts; tool calls behind allowlists.
+- **Fairness & abuse:** block automated account creation scoring; review disparate impact when the model affects protected classes.
+
+**Input validation example (FastAPI):**
+
+```python
+from pydantic import BaseModel, Field, field_validator
+
+
+class ScoreRequest(BaseModel):
+    user_id: str = Field(min_length=1, max_length=64)
+    amount: float = Field(gt=0, le=1_000_000)
+    country: str = Field(min_length=2, max_length=2)
+
+    @field_validator("country")
+    @classmethod
+    def upper_iso(cls, v: str) -> str:
+        c = v.upper()
+        if not c.isalpha():
+            raise ValueError("country must be ISO-style letters")
+        return c
+```
+
+---
+
+## Testing & Safe Rollouts
+
+**Champion / challenger:** production keeps **champion**; **challenger** receives a slice (e.g. 5%) for A/B comparison on business KPIs, not only accuracy.
+
+**Canary deploy:** route 1% → 10% → 100% while watching error rate and p99 latency; automatic rollback if SLO breached.
+
+**Shadow traffic:** duplicate live requests to a new version; discard responses; compare latencies and distribution of scores — **users never see failures** from the candidate.
+
+**Blue/green:** two full environments; flip load balancer when green is verified; fast rollback is flip back.
+
+```python
+# Feature-flag style routing (concept only)
+import hashlib
+
+
+def choose_model_version(user_id: str) -> str:
+    # sticky canary: same user always sees same version during an experiment
+    bucket = int(hashlib.sha256(user_id.encode()).hexdigest(), 16) % 100
+    return "v2" if bucket < 5 else "v1"
+```
+
+---
+
+## Interview & Design-Review Checklist
+
+When someone says “design a recommendation system” or “fraud detection at scale,” walk through:
+
+1. **Users & goals:** Who calls the API? What decision happens with the score?
+2. **Scale:** RPS, payload size, sync vs async, regional latency.
+3. **Data:** sources, freshness, PII, training window, label definition.
+4. **Features:** online/offline parity, store, cold users/items.
+5. **Model:** family, size, GPU vs CPU, batching, multi-model routing.
+6. **Serving:** REST/gRPC, autoscaling, warm pools, timeouts, idempotency.
+7. **Reliability:** retries, circuit breakers, degradation, multi-AZ.
+8. **Observability:** golden signals + ML metrics (calibration, drift proxies).
+9. **Release:** canary/shadow, rollback, registry pins.
+10. **Cost & compliance:** $/1k inferences, retention, legal constraints.
+
+If you cover these ten buckets with **one concrete example each**, you usually demonstrate senior-level system thinking.
 
 ---
 
