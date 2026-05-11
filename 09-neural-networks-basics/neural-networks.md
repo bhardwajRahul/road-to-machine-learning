@@ -2,14 +2,37 @@
 
 Comprehensive guide to understanding and building neural networks from scratch.
 
+## Deep learning curriculum map (this guide)
+
+Foundations from **math + NumPy** before frameworks. **PyTorch tensors, autograd, training loops, and ANN projects** → [Deep learning frameworks guide](../10-deep-learning-frameworks/deep-learning-frameworks.md#deep-learning-curriculum-map-this-guide).
+
+- **Deep learning fundamentals and applications** → [Introduction](#introduction)
+- **Machine learning vs deep learning** → [Machine learning versus deep learning](#machine-learning-versus-deep-learning)
+- **Limitations of linear models** → [Limitations of linear models](#limitations-of-linear-models); **perceptron and loss** → [Perceptron](#perceptron), [Loss functions](#loss-functions)
+- **MLP and forward propagation** → [Multi-layer perceptron](#multi-layer-perceptron)
+- **Neural network types overview** → [Neural network types overview](#neural-network-types-overview)
+- **Backpropagation (intuition and mathematics)** → [Backpropagation](#backpropagation)
+- **Optimization (Momentum, AdaGrad, RMSProp, Adam) and gradient descent** → [Gradient descent](#gradient-descent)
+- **Training challenges (vanishing/exploding gradients, scaling, early stopping)** → [Training challenges and monitoring](#training-challenges-and-monitoring)
+- **Regularization (L1/L2, weight decay, dropout) and stability (initialization, batch norm)** → [Weight initialization](#weight-initialization), [Regularization dropout and batch normalization](#regularization-dropout-and-batch-normalization)
+- **Projects (MNIST, churn, house prices with ANNs)** → [Projects below](#practice-exercises); [MNIST / intermediate](../17-projects-intermediate/README.md#deep-learning-curriculum-map-projects), [churn](../17-projects-intermediate/project-02-customer-churn/README.md), [house prices](../16-projects-beginner/project-01-house-price-prediction/README.md)
+
 ## Table of Contents
 
+- [Deep learning curriculum map (this guide)](#deep-learning-curriculum-map-this-guide)
 - [Introduction](#introduction)
+- [Machine learning versus deep learning](#machine-learning-versus-deep-learning)
+- [Limitations of linear models](#limitations-of-linear-models)
+- [Neural network types overview](#neural-network-types-overview)
 - [Perceptron](#perceptron)
 - [Multi-Layer Perceptron](#multi-layer-perceptron)
 - [Activation Functions](#activation-functions)
 - [Backpropagation](#backpropagation)
 - [Gradient Descent](#gradient-descent)
+- [Loss Functions](#loss-functions)
+- [Weight Initialization](#weight-initialization)
+- [Training challenges and monitoring](#training-challenges-and-monitoring)
+- [Regularization dropout and batch normalization](#regularization-dropout-and-batch-normalization)
 - [Practice Exercises](#practice-exercises)
 
 ---
@@ -55,6 +78,38 @@ Input Layer → Hidden Layer(s) → Output Layer
 1. **Input Layer**: Receives raw data
 2. **Hidden Layers**: Process and transform data (can have multiple)
 3. **Output Layer**: Produces final predictions
+
+---
+
+## Machine learning versus deep learning
+
+| | **Classical ML** (earlier modules) | **Deep learning** |
+|---|-----------------------------------|---------------------|
+| Features | Often hand-crafted + tabular | Learned representations from raw inputs (pixels, text, audio) |
+| Data size | Can work well with smaller tabular sets | Benefits from larger datasets and compute |
+| Models | Trees, SVM, linear models, shallow nets | Deep stacks of non-linear layers (MLPs, CNNs, RNNs, Transformers) |
+| Training | Many algorithms need little tuning | Requires careful optimization, scaling, regularization |
+
+**Real-world deep learning:** speech assistants, machine translation, recommendation ranking, medical imaging, generative models, robotics perception. This module builds the **shared language** (layers, losses, gradients) used in all of them.
+
+---
+
+## Limitations of linear models
+
+A **linear** model only separates or predicts with a single weighted sum of inputs (plus bias). It cannot learn XOR-like interaction gates without explicit feature crosses. A **perceptron** with a step or sigmoid output is still a **linear decision boundary** unless you add **hidden layers** (then it becomes an MLP). That is why depth and non-linear activations matter.
+
+---
+
+## Neural network types overview
+
+| Family | Typical input | Role |
+|--------|----------------|------|
+| **MLP** (feed-forward) | Tabular / vectors | Universal approximator; baseline for structured data |
+| **CNN** | Images / grids | Local patterns, translation tolerance |
+| **RNN / LSTM / GRU** | Sequences | Order and memory over time |
+| **Transformer** | Sequences / tokens | Self-attention; dominant in NLP and beyond |
+
+Later phases cover CNNs and sequence models; here we focus on **MLP fundamentals** that all architectures share (linear layers + non-linearity + training).
 
 ---
 
@@ -719,14 +774,54 @@ def rmsprop_gd(X, y, learning_rate=0.01, decay=0.9, epochs=100):
     
     return weights, losses
 
+# AdaGrad: accumulate squared gradients, divide learning rate
+def adagrad_gd(X, y, learning_rate=0.1, epochs=100):
+    weights = np.random.randn(X.shape[1])
+    G = np.zeros_like(weights)
+    losses = []
+    eps = 1e-8
+    for epoch in range(epochs):
+        predictions = X @ weights
+        error = predictions - y
+        loss = np.mean(error ** 2)
+        losses.append(loss)
+        gradient = X.T @ error / len(X)
+        G += gradient ** 2
+        weights -= learning_rate * gradient / (np.sqrt(G) + eps)
+    return weights, losses
+
+# Adam: momentum + RMSprop-style scaling (simplified scalar version per weight)
+def adam_gd(X, y, lr=0.01, beta1=0.9, beta2=0.999, epochs=100):
+    weights = np.random.randn(X.shape[1])
+    m = np.zeros_like(weights)
+    v = np.zeros_like(weights)
+    losses = []
+    eps = 1e-8
+    for t in range(1, epochs + 1):
+        predictions = X @ weights
+        error = predictions - y
+        loss = np.mean(error ** 2)
+        losses.append(loss)
+        g = X.T @ error / len(X)
+        m = beta1 * m + (1 - beta1) * g
+        v = beta2 * v + (1 - beta2) * (g ** 2)
+        m_hat = m / (1 - beta1 ** t)
+        v_hat = v / (1 - beta2 ** t)
+        weights -= lr * m_hat / (np.sqrt(v_hat) + eps)
+    return weights, losses
+
 # Compare optimizers
 weights_momentum, losses_momentum = momentum_gd(X, y, epochs=50)
 weights_rmsprop, losses_rmsprop = rmsprop_gd(X, y, epochs=50)
+weights_adagrad, losses_adagrad = adagrad_gd(X, y, epochs=50)
+weights_adam, losses_adam = adam_gd(X, y, epochs=50)
 
 plt.figure(figsize=(12, 5))
 plt.plot(losses_batch, label='Batch GD', linewidth=2)
 plt.plot(losses_momentum, label='Momentum', linewidth=2)
 plt.plot(losses_rmsprop, label='RMSprop', linewidth=2)
+plt.plot(losses_adagrad, label='AdaGrad', linewidth=2, alpha=0.8)
+plt.plot(losses_adam, label='Adam', linewidth=2, alpha=0.8)
 plt.xlabel('Epoch', fontsize=12)
 plt.ylabel('Loss', fontsize=12)
 plt.title('Optimizer Comparison', fontsize=14, fontweight='bold')
@@ -814,6 +909,57 @@ print(f"He: mean={weights_he.mean():.4f}, std={weights_he.std():.4f}")
 print(f"Random: mean={weights_random.mean():.4f}, std={weights_random.std():.4f}")
 ```
 
+---
+
+## Training challenges and monitoring
+
+**Vanishing / exploding gradients:** very deep stacks with saturating activations shrink gradients; huge weights or learning rates blow them up. Mitigations: **ReLU** family, **residual** ideas (later), **gradient clipping**, sensible **initialization** (Xavier/He), and **batch normalization** (frameworks).
+
+**Input scaling:** standardize features so optimizers see similar curvature; neural nets are sensitive compared to tree models.
+
+**Early stopping:** track **validation** loss; stop training when it worsens while training loss still drops (classic overfit signal).
+
+```python
+# Toy: monitor gradient norm of a simple linear model (proxy for "exploding")
+import numpy as np
+
+rng = np.random.default_rng(0)
+X = rng.standard_normal((64, 4))
+y = X @ np.array([1.0, -0.5, 0.25, 0.0]) + 0.1 * rng.standard_normal(64)
+w = rng.standard_normal(4) * 5  # intentionally large start → larger gradients
+lr = 0.05
+for step in range(20):
+    pred = X @ w
+    grad = X.T @ (pred - y) / len(X)
+    gn = np.linalg.norm(grad)
+    if gn > 50:
+        print(f"step {step}: large gradient norm {gn:.1f} — consider lower lr or clipping")
+    w -= lr * grad
+```
+
+---
+
+## Regularization dropout and batch normalization
+
+- **L2 (weight decay):** add `λ * ||w||²` to the loss so weights stay small; in PyTorch use `weight_decay` on the optimizer. **L1** encourages sparsity (many weights → 0).
+- **Dropout:** randomly zero hidden units during training to prevent co-adaptation; turn off at inference (scale outputs accordingly in plain NumPy; frameworks handle this).
+- **Batch normalization:** normalize layer inputs per mini-batch, learnable scale/shift; stabilizes training and often allows higher learning rates (implemented in `nn.BatchNorm1d` / Keras `BatchNormalization`).
+
+```python
+# L2 penalty on weights inside a simple linear regression gradient step
+def l2_sgd_step(X, y, w, lr, l2_lambda):
+    pred = X @ w
+    grad = X.T @ (pred - y) / len(X) + l2_lambda * w
+    return w - lr * grad
+
+# Dropout mask (training only) — conceptual
+def dropout(x, p=0.3, rng=np.random.default_rng(0)):
+    mask = (rng.random(x.shape) > p).astype(float)
+    return x * mask / (1.0 - p)  # inverted dropout scaling
+```
+
+---
+
 ## Practice Exercises
 
 ### Exercise 1: Build Perceptron for AND Gate
@@ -880,6 +1026,9 @@ for x, y_true, y_pred in zip(X_xor, y_xor, predictions):
 6. **Loss Functions**: MSE for regression, Cross-Entropy for classification
 7. **Weight Initialization**: Critical for training (Xavier for tanh/sigmoid, He for ReLU)
 8. **Learning Rate**: Critical hyperparameter - too high (divergence), too low (slow convergence)
+9. **Adaptive optimizers**: Momentum smooths updates; AdaGrad/RMSprop/Adam scale per-parameter steps (see [Gradient descent](#gradient-descent))
+10. **Training health**: Watch gradient norms, use validation **early stopping**, and scale inputs
+11. **Regularization**: L2/weight decay, dropout, and batch norm stabilize and improve generalization
 
 ---
 

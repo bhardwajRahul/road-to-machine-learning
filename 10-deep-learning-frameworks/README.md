@@ -10,6 +10,15 @@ Master TensorFlow/Keras and PyTorch for building deep learning models.
 - Model Saving and Loading
 - Transfer Learning Basics
 
+## Deep learning curriculum map
+
+| Topic | Where to study |
+|-------|----------------|
+| PyTorch tensors, autograd, training pipeline | [Frameworks guide](deep-learning-frameworks.md#deep-learning-curriculum-map-this-guide) |
+| NumPy/theory first | [Neural networks basics](../09-neural-networks-basics/neural-networks.md#deep-learning-curriculum-map-this-guide) |
+| MNIST, churn, house-price style ANN projects | [Intermediate projects](../17-projects-intermediate/README.md#deep-learning-curriculum-map-projects) |
+| CNN and RNN in PyTorch (vision + sequences) | [CNN & RNN map](deep-learning-frameworks.md#cnn-and-rnn-curriculum-map-pytorch) |
+
 ##  Topics Covered
 
 ### 1. TensorFlow/Keras

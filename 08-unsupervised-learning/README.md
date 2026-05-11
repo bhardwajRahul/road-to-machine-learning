@@ -10,6 +10,13 @@ Learn to find patterns in data without labels.
 - Association Rules
 - Real-world Applications
 
+## Advanced machine learning curriculum map
+
+| Topic | Where to study |
+|-------|----------------|
+| K-Means, hierarchical, DBSCAN | [Unsupervised guide](unsupervised-learning.md#clustering) (sections inside) |
+| Cluster validation and visualization | [Validation and visualization](unsupervised-learning.md#cluster-validation-and-visualization-techniques) |
+
 ##  Topics Covered
 
 ### 1. Clustering

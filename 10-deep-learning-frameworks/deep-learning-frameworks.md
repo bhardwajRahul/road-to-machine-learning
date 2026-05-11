@@ -2,9 +2,30 @@
 
 Comprehensive guide to TensorFlow/Keras and PyTorch for building deep learning models.
 
+## Deep learning curriculum map (this guide)
+
+NumPy fundamentals and theory → [Neural networks basics](../09-neural-networks-basics/neural-networks.md#deep-learning-curriculum-map-this-guide). Below: **PyTorch** and **TensorFlow/Keras** with runnable patterns.
+
+- **PyTorch tensors, autograd, and computational graph** → [PyTorch tensors](#pytorch-tensors-the-foundation), [Autograd and graph](#autograd-and-the-computational-graph)
+- **Training pipeline and building networks in PyTorch** → [PyTorch workflow](#the-pytorch-workflow-pattern), [Building models](#building-models)
+- **MLP-style classification/regression in PyTorch** → [PyTorch classification](#pytorch-neural-network-classification)
+- **Regularization in frameworks (dropout, weight decay, batch norm)** → [TensorFlow/Keras sequential example](#sequential-api) (Dropout layers), [Best practices](#best-practices)
+- **Projects (MNIST, churn, house prices)** → [Intermediate DL projects](../17-projects-intermediate/README.md#deep-learning-curriculum-map-projects)
+
+## CNN and RNN curriculum map (PyTorch)
+
+Theory and activations: [Neural networks basics](../09-neural-networks-basics/neural-networks.md#deep-learning-curriculum-map-this-guide). **CNN math and architectures** → [Computer vision](../11-computer-vision/computer-vision.md#cnn-and-modern-vision-curriculum-map-this-guide). **RNN, LSTM, GRU, Transformers** → [NLP guide](../12-natural-language-processing/nlp.md#cnn-and-rnn-curriculum-map-this-guide).
+
+- **CNN in PyTorch** (`nn.Conv2d`, pooling, training loop on batches) → [PyTorch computer vision](#pytorch-computer-vision)
+- **Image augmentation and pretrained CNNs** → [TorchVision / transfer in CV module](../11-computer-vision/computer-vision.md#data-augmentation), [Transfer learning](../11-computer-vision/computer-vision.md#transfer-learning)
+- **Sequence `Dataset` / `DataLoader` and padding** → [NLP — Sequence data and PyTorch](../12-natural-language-processing/nlp.md#sequence-data-and-pytorch)
+
 ## Table of Contents
 
+- [Deep learning curriculum map (this guide)](#deep-learning-curriculum-map-this-guide)
+- [CNN and RNN curriculum map (PyTorch)](#cnn-and-rnn-curriculum-map-pytorch)
 - [Introduction](#introduction)
+- [Autograd and the computational graph](#autograd-and-the-computational-graph)
 - [TensorFlow/Keras](#tensorflowkeras)
   - [Installation](#installation)
   - [Sequential API](#sequential-api)
@@ -833,6 +854,34 @@ class CNN(nn.Module):
 model = CNN()
 # ... training code ...
 ```
+
+---
+
+## Autograd and the computational graph
+
+PyTorch records operations on tensors that have **`requires_grad=True`**, building a **dynamic computational graph**. Calling **`.backward()`** runs reverse-mode automatic differentiation (generalization of backprop) and deposits gradients in **`.grad`**.
+
+```python
+import torch
+
+# Scalar graph: y = x^2 + 3x  →  dy/dx = 2x + 3
+x = torch.tensor(2.0, requires_grad=True)
+y = x ** 2 + 3 * x
+y.backward()
+print("x:", x.item(), "y:", y.item(), "dy/dx:", x.grad.item())
+
+# Vector loss on a tiny linear layer (pattern used in real training loops)
+W = torch.tensor([[0.5, -0.2]], requires_grad=True)  # 1x2
+b = torch.tensor([0.1], requires_grad=True)
+inp = torch.tensor([[1.0, -1.0]])  # batch 1, two features
+logits = inp @ W.T + b
+target = torch.tensor([[1.0]])
+loss = ((logits - target) ** 2).mean()
+loss.backward()
+print("dL/dW:", W.grad, "dL/db:", b.grad)
+```
+
+**Training loop pattern:** `loss.backward()` then `optimizer.step()` then `optimizer.zero_grad()` (or `zero_grad` before forward) so gradients do not accumulate across iterations.
 
 ---
 

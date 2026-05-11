@@ -2,9 +2,20 @@
 
 Comprehensive guide to finding patterns in unlabeled data.
 
+## Advanced machine learning curriculum map (this guide)
+
+**Clustering and validation** (supervised trees/SVM: [Classification guide](../04-supervised-learning-classification/classification.md#advanced-machine-learning-curriculum-map-this-guide); ensembles: [Ensemble methods](../06-ensemble-methods/ensemble-methods.md#advanced-machine-learning-curriculum-map-this-guide)).
+
+- **K-Means clustering** → [K-Means](#k-means)
+- **Hierarchical clustering** → [Hierarchical clustering](#hierarchical-clustering)
+- **DBSCAN density-based clustering** → [DBSCAN](#dbscan)
+- **Cluster validation and visualization** → [Cluster validation and visualization techniques](#cluster-validation-and-visualization-techniques)
+
 ## Table of Contents
 
+- [Advanced machine learning curriculum map (this guide)](#advanced-machine-learning-curriculum-map-this-guide)
 - [Introduction](#introduction)
+- [Cluster validation and visualization techniques](#cluster-validation-and-visualization-techniques)
 - [Clustering](#clustering)
 - [Dimensionality Reduction](#dimensionality-reduction)
 - [Anomaly Detection](#anomaly-detection)
@@ -46,6 +57,27 @@ Learning from unlabeled data - finding hidden patterns without guidance.
 - Harder to validate results
 - Requires domain knowledge
 - Interpretation is subjective
+
+---
+
+## Cluster validation and visualization techniques
+
+Without labels, quality is judged by **internal indices** (silhouette, Calinski–Harabasz, Davies–Bouldin), **stability**, and **plots** (2D scatter of embedded points, dendrogram for hierarchical, core-point reachability for DBSCAN). The [K-Means](#k-means) section below includes silhouette and scatter of clusters; [Hierarchical clustering](#hierarchical-clustering) shows a **dendrogram**; [DBSCAN](#dbscan) shows density-based shapes.
+
+```python
+# Minimal pattern: fit → silhouette → scatter (replace X with your features)
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import StandardScaler
+
+rng = np.random.default_rng(0)
+X = np.vstack([rng.normal(0, 0.5, (80, 2)), rng.normal(4, 0.5, (80, 2))])
+X = StandardScaler().fit_transform(X)
+
+labels = KMeans(n_clusters=2, random_state=42, n_init=10).fit_predict(X)
+print("Silhouette (higher is better, max 1):", silhouette_score(X, labels))
+```
 
 ---
 

@@ -10,6 +10,15 @@ Introduction to neural networks - the foundation of deep learning.
 - Gradient Descent Variants
 - Building Neural Networks from Scratch
 
+## Deep learning curriculum map
+
+| Topic | Where to study |
+|-------|----------------|
+| Fundamentals, ML vs DL, linear limits, MLP, activations, losses | [Neural networks guide](neural-networks.md#deep-learning-curriculum-map-this-guide) |
+| Backpropagation and optimizer math (Momentum, AdaGrad, RMSProp, Adam) | [Backpropagation](neural-networks.md#backpropagation), [Gradient descent](neural-networks.md#gradient-descent) |
+| Training challenges; regularization; weight init | [Training challenges](neural-networks.md#training-challenges-and-monitoring), [Regularization](neural-networks.md#regularization-dropout-and-batch-normalization), [Weight init](neural-networks.md#weight-initialization) |
+| PyTorch / Keras pipelines and projects | [Frameworks module](../10-deep-learning-frameworks/README.md#deep-learning-curriculum-map) |
+
 ##  Topics Covered
 
 ### 1. Perceptron
