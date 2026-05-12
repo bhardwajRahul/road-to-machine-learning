@@ -878,6 +878,7 @@ Follow my curated ML playlist for guided video walkthroughs:
 
 ### Career & Interview Resources
 - [Career Roadmap Guide](resources/career_roadmap_guide.md) - **Role-specific learning paths**: Data Analyst, Data Scientist, ML Engineer, LLM Engineer, GenAI Solution Architect, Computer Vision Engineer, AI Engineer, Data Engineer, MLOps Engineer, Research Scientist, BI Analyst
+- [Full-Stack AI Engineer Roadmap](resources/full_stack_ai_engineer_roadmap.md) - End-to-end roadmap for TypeScript, backend, databases, Next.js, cloud, and AI product integration
 - [Career & Portfolio Guide](resources/career_portfolio.md) - Build your portfolio, prepare for interviews, and launch your ML career
 - [Interview Preparation Guide](resources/interview_prep.md) - ML interview questions, coding challenges, system design, and preparation strategies
 - [Open Source Contribution Guide](resources/open_source_contribution.md) - How to contribute to open source projects in data science and ML
