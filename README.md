@@ -13,7 +13,7 @@
 
 *Perfect for beginners • 26 Learning Modules • 23 Real-World Projects • Production-Ready Skills*
 
-[Get Started](#getting-started) • [Learning Path](#learning-path) • [Projects](#phase-9-projects) • [Contribute](#contributing)
+[Get Started](#getting-started) • [Learning Path](#learning-path) • [Projects](#phase-9-projects) • [Full-stack AI](resources/career_roadmap_guide.md#full-stack-ai-engineer) • [Contribute](#contributing)
 
 </div>
 

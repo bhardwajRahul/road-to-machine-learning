@@ -231,7 +231,7 @@ Use these free resources alongside each phase. They are practical, well-maintain
 
 ### AI Product Integration (Phase H)
 - [OpenAI API Docs](https://platform.openai.com/docs)
-- [LangChain Docs](https://python.langchain.com/docs/introduction/)
+- LangChain: [Python docs](https://python.langchain.com/docs/introduction/) (general concepts) · [JavaScript / TypeScript docs](https://docs.langchain.com/oss/javascript/langchain/overview) (use this track when your stack is Node or Next.js)
 - [LlamaIndex Docs](https://docs.llamaindex.ai/)
 - [Hugging Face Course](https://huggingface.co/learn)
 - [Full Stack Deep Learning](https://fullstackdeeplearning.com/)

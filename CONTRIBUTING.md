@@ -80,7 +80,7 @@ We welcome contributions of:
 
 - Test your code before submitting
 - Ensure notebooks run without errors
-- Verify links work
+- For Markdown changes, run internal link and anchor checks from the repo root: `python3 tools/check_md_links.py` (CI runs this on every push and pull request to `main`)
 - Check for typos and grammar
 
 ## Documentation
