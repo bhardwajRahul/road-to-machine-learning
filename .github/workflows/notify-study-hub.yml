@@ -1,0 +1,27 @@
+# Notify the Study Hub repo to re-sync when curriculum changes on main.
+#
+# Setup (one time):
+# 1. Create a fine-grained PAT with Contents read/write on the study hub repo.
+# 2. Settings → Secrets → Actions: STUDY_HUB_DISPATCH_TOKEN = <PAT>
+# 3. Settings → Variables → Actions: STUDY_HUB_REPO = NabidAlam/youtube-thumbnail-studio
+# 4. Commit and push this file to main.
+
+name: Notify study hub
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - "!.github/**"
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger study hub sync
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.STUDY_HUB_DISPATCH_TOKEN }}
+          repository: ${{ vars.STUDY_HUB_REPO }}
+          event-type: curriculum-updated
