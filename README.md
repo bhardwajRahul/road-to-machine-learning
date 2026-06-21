@@ -936,7 +936,7 @@ road-to-machine-learning/
 
 ## YouTube Playlist
 
-Follow my curated ML playlist for guided video walkthroughs:
+Follow my curated playlist for guided video walkthroughs:
 
 - [Advanced AI Engineering & Architecture Masterclass (Concept Over Code)](https://www.youtube.com/playlist?list=PLCAuWzdnX8zIhdfVRWfUc8FUhTWKROb4p)
 
