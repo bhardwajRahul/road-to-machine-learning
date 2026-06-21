@@ -79,5 +79,5 @@ model = LinearRegression()
 
 ---
 
-**Remember**: Start simple and iterate!
+**Try next:** Start simple and iterate!
 

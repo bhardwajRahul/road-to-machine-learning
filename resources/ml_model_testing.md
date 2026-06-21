@@ -629,5 +629,5 @@ def test_model_with_mocked_data_source():
 
 ---
 
-**Remember**: Good tests give you confidence to deploy and refactor. Start with critical paths and expand coverage over time!
+**Try next:** Good tests give you confidence to deploy and refactor. Start with critical paths and expand coverage over time!
 

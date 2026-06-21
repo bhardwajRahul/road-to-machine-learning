@@ -343,5 +343,5 @@ def test_calculate_accuracy_perfect():
 
 ---
 
-**Remember**: Every contribution matters, no matter how small. Start contributing today!
+**Try next:** Every contribution matters, no matter how small. Start contributing today!
 

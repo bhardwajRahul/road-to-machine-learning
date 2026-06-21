@@ -8,7 +8,7 @@ Comprehensive guide to advanced deployment techniques and best practices.
 - [Advanced API Patterns](#advanced-api-patterns)
 - [Kubernetes Deployment](#kubernetes-deployment)
 - [Edge Deployment](#edge-deployment)
-- [A/B Testing](#a-b-testing)
+- [A/B Testing](#ab-testing)
 - [Model Versioning](#model-versioning)
 - [Common Pitfalls and Solutions](#common-pitfalls-and-solutions)
 
@@ -836,5 +836,5 @@ estimator = TensorFlow(
 
 ---
 
-**Remember**: Production deployment requires optimization and monitoring!
+**Try next:** Production deployment requires optimization and monitoring!
 

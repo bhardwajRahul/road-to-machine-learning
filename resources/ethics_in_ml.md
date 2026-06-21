@@ -817,5 +817,5 @@ y_pred_fair = postprocessor.predict(X_test, sensitive_features=test_groups)
 
 ---
 
-**Remember**: Building ethical ML systems is not just about compliance - it's about building systems that are fair, trustworthy, and beneficial for all users.
+**Try next:** Building ethical ML systems is not just about compliance - it's about building systems that are fair, trustworthy, and beneficial for all users.
 

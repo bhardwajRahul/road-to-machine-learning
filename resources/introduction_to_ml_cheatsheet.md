@@ -406,5 +406,5 @@ r2 = r2_score(y_true, y_pred)
 
 ---
 
-**Remember**: Start simple, iterate, and always validate your approach!
+**Try next:** Start simple, iterate, and always validate your approach!
 

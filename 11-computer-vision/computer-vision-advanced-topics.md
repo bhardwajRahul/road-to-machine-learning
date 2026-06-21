@@ -1322,5 +1322,5 @@ model = tfmot.sparsity.keras.prune_low_magnitude(model, **pruning_params)
 
 ---
 
-**Remember**: Advanced techniques build on fundamentals - master basics first!
+**Try next:** Advanced techniques build on fundamentals - master basics first!
 

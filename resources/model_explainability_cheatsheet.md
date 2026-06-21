@@ -427,5 +427,5 @@ explanation.show_in_notebook(show_table=True)
 
 ---
 
-**Remember**: Explainability builds trust and helps debug models. Use multiple methods for comprehensive understanding!
+**Try next:** Explainability builds trust and helps debug models. Use multiple methods for comprehensive understanding!
 

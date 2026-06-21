@@ -974,7 +974,7 @@ def brute_force_nn(X_train, query, k=5):
 9. **Dynamic Programming**: Optimization, memoization
 10. **Greedy Algorithms**: Feature selection, decision trees
 
-**Remember**: Focus on understanding how these apply to ML, not memorizing implementations. Use libraries (NumPy, scikit-learn) for production code, but understand the underlying concepts!
+**Try next:** Focus on understanding how these apply to ML, not memorizing implementations. Use libraries (NumPy, scikit-learn) for production code, but understand the underlying concepts!
 
 ---
 

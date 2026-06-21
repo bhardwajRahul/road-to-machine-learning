@@ -7,7 +7,7 @@ Quick reference for MLOps tools and practices.
 - [Version Control](#version-control)
 - [Experiment Tracking](#experiment-tracking)
 - [Model Registry](#model-registry)
-- [CI/CD](#ci-cd)
+- [CI/CD](#cicd)
 - [Common Issues & Solutions](#common-issues-solutions)
 - [Best Practices Checklist](#best-practices-checklist)
 
@@ -116,5 +116,5 @@ client.transition_model_version_stage("ModelName", 1, "Production")
 
 ---
 
-**Remember**: MLOps makes ML production-ready!
+**Try next:** MLOps makes ML production-ready!
 

@@ -8,7 +8,7 @@ Quick lookup guide for NumPy, Pandas, Matplotlib, and data manipulation operatio
 - [Pandas Quick Reference](#pandas-quick-reference)
 - [Visualization Quick Reference](#visualization-quick-reference)
 - [Common Data Manipulation Patterns](#common-data-manipulation-patterns)
-- [File I/O Quick Reference](#file-i-o-quick-reference)
+- [File I/O Quick Reference](#file-io-quick-reference)
 
 ---
 
@@ -378,5 +378,5 @@ df = pd.concat(chunks)
 
 ---
 
-**Remember**: This is a quick reference. For detailed explanations, see the main guides!
+**Try next:** This is a quick reference. For detailed explanations, see the main guides!
 

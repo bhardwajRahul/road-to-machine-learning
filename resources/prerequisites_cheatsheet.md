@@ -412,5 +412,5 @@ np.random.randn(3, 3)       # Normal distribution
 
 ---
 
-**Remember**: Master these fundamentals before diving into ML! They form the foundation for understanding algorithms and models.
+**Try next:** Master these fundamentals before diving into ML! They form the foundation for understanding algorithms and models.
 

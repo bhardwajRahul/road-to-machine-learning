@@ -1,6 +1,6 @@
 # Calculus for Machine Learning
 
-Comprehensive guide to calculus concepts essential for understanding optimization, gradient descent, and training machine learning models.
+This guide covers calculus concepts essential for understanding optimization, gradient descent, and training machine learning models.
 
 ## Table of Contents
 
@@ -819,4 +819,4 @@ Compute derivative of f(x) = sin(x² + 1) using chain rule.
 
 ---
 
-**Remember**: Calculus is the tool that makes ML optimization possible. Understanding gradients is key to understanding how models learn!
+**Try next:** Calculus is the tool that makes ML optimization possible. Understanding gradients is key to understanding how models learn!

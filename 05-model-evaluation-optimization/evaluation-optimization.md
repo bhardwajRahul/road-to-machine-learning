@@ -1,6 +1,6 @@
 # Model Evaluation & Optimization Complete Guide
 
-Comprehensive guide to properly evaluating models and optimizing their performance.
+This guide covers properly evaluating models and optimizing their performance.
 
 ## Table of Contents
 
@@ -1039,5 +1039,5 @@ print(f"  Calibrated: {roc_auc_score(y_test, rf_calibrated_proba):.4f}")
 - Analyze learning curves for different models
 - Move to [06-ensemble-methods](../06-ensemble-methods/README.md)
 
-**Remember**: Never touch test set until final evaluation! Use validation set for all tuning and model selection.
+**Try next:** Never touch test set until final evaluation! Use validation set for all tuning and model selection.
 

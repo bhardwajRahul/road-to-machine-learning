@@ -7,7 +7,7 @@ Comprehensive quick reference for MLOps tools, practices, and workflows.
 - [Version Control](#version-control)
 - [Experiment Tracking](#experiment-tracking)
 - [Model Registry](#model-registry)
-- [CI/CD](#ci-cd)
+- [CI/CD](#cicd)
 - [Model Monitoring](#model-monitoring)
 - [Data Versioning](#data-versioning)
 - [Pipeline Orchestration](#pipeline-orchestration)
@@ -488,5 +488,5 @@ git lfs ls-files            # List tracked files
 
 ---
 
-**Remember**: MLOps ensures reproducibility, scalability, and reliability of ML systems!
+**Try next:** MLOps ensures reproducibility, scalability, and reliability of ML systems!
 

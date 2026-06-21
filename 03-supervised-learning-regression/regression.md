@@ -1,6 +1,6 @@
 # Supervised Learning - Regression Complete Guide
 
-Comprehensive guide to regression algorithms for predicting continuous values.
+This guide covers regression algorithms for predicting continuous values.
 
 ## ML for beginners curriculum map (this guide)
 
@@ -717,5 +717,5 @@ print(f"R²: {r2_score(y, y_pred):.3f}")
 - Experiment with different regularization strengths
 - Move to [04-supervised-learning-classification](../04-supervised-learning-classification/README.md) for classification
 
-**Remember**: Start simple (linear), then add complexity only if needed!
+**Try next:** Start simple (linear), then add complexity only if needed!
 

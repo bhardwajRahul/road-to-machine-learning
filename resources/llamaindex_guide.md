@@ -531,5 +531,5 @@ response = query_engine.query("What are the key findings across all papers?")
 
 ---
 
-**Remember**: LlamaIndex excels at indexing and querying large document collections. Use it for document-based AI applications!
+**Try next:** LlamaIndex excels at indexing and querying large document collections. Use it for document-based AI applications!
 

@@ -520,5 +520,5 @@ print(f"Pi estimate: {pi_estimate:.4f}")
 
 ---
 
-**Remember**: These advanced topics will be used throughout your ML journey. Master them now to make everything easier later!
+**Try next:** These advanced topics will be used throughout your ML journey. Master them now to make everything easier later!
 

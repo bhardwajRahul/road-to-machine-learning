@@ -937,5 +937,5 @@ davies = davies_bouldin_score(X_scaled, clusters)
 - Explore graph-based clustering
 - Move to neural networks module
 
-**Remember**: Advanced methods require more computation but can handle complex patterns!
+**Try next:** Advanced methods require more computation but can handle complex patterns!
 

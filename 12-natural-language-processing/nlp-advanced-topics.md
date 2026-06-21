@@ -2248,5 +2248,5 @@ qa_chain = RetrievalQA.from_chain_type(
 
 ---
 
-**Remember**: Transformers have revolutionized NLP - use them! RAG extends their capabilities with external knowledge.
+**Try next:** Transformers have revolutionized NLP - use them! RAG extends their capabilities with external knowledge.
 

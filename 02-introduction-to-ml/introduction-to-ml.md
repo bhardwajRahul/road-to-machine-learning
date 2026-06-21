@@ -1,6 +1,6 @@
 # Introduction to Machine Learning - Complete Guide
 
-Comprehensive guide to understanding machine learning fundamentals, types, workflow, and applications.
+This guide covers understanding machine learning fundamentals, types, workflow, and applications.
 
 ## ML for beginners curriculum map (this guide)
 
@@ -888,5 +888,5 @@ print(classification_report(y_test, y_pred, target_names=iris.target_names))
 - Move to [03-supervised-learning-regression](../03-supervised-learning-regression/README.md) for regression
 - Or [04-supervised-learning-classification](../04-supervised-learning-classification/README.md) for classification
 
-**Remember**: Understanding the fundamentals is crucial before diving into algorithms!
+**Try next:** Understanding the fundamentals is crucial before diving into algorithms!
 

@@ -1,6 +1,6 @@
 # Feature Engineering Complete Guide
 
-Comprehensive guide to creating and selecting the best features for your models.
+This guide covers creating and selecting the best features for your models.
 
 ## ML for beginners curriculum map (this guide)
 
@@ -1520,7 +1520,7 @@ for name, encoder in encodings.items():
 ### Books
 
 1. **"Feature Engineering for Machine Learning"** - Alice Zheng & Amanda Casari
-   - Comprehensive guide to feature engineering
+   - This guide covers feature engineering
    - Practical examples and techniques
 
 2. **"Hands-On Machine Learning"** - Aurélien Géron
@@ -1587,5 +1587,5 @@ for name, encoder in encodings.items():
 - Learn domain-specific feature engineering
 - Move to [08-unsupervised-learning](../08-unsupervised-learning/README.md)
 
-**Remember**: Good features beat complex algorithms! Invest time in feature engineering.
+**Try next:** Good features beat complex algorithms! Invest time in feature engineering.
 

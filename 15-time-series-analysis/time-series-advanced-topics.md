@@ -117,5 +117,5 @@ anomalies = iso_forest.fit_predict(data.values.reshape(-1, 1))
 
 ---
 
-**Remember**: Advanced techniques build on fundamentals!
+**Try next:** Advanced techniques build on fundamentals!
 

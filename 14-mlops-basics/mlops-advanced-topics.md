@@ -461,5 +461,5 @@ encoder = OneHotEncoder(
 
 ---
 
-**Remember**: Advanced MLOps requires proper tooling and practices!
+**Try next:** Advanced MLOps requires proper tooling and practices!
 

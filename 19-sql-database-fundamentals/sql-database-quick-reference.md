@@ -33,5 +33,5 @@ HAVING COUNT(*) > 5;
 
 ---
 
-**Remember**: Practice SQL regularly!
+**Try next:** Practice SQL regularly!
 

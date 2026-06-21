@@ -1,6 +1,6 @@
 # Graph Neural Networks Complete Guide
 
-Comprehensive guide to Graph Neural Networks (GNNs) for learning on graph-structured data.
+This guide covers Graph Neural Networks (GNNs) for learning on graph-structured data.
 
 ## Table of Contents
 

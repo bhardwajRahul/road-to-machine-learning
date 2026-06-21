@@ -1,6 +1,6 @@
 # Supervised Learning - Classification Complete Guide
 
-Comprehensive guide to classification algorithms for predicting categories.
+This guide covers classification algorithms for predicting categories.
 
 ## ML for beginners curriculum map (this guide)
 
@@ -1859,5 +1859,5 @@ Need interpretability?
 - Learn about handling imbalanced data
 - Move to [05-model-evaluation-optimization](../05-model-evaluation-optimization/README.md)
 
-**Remember**: Try multiple algorithms, compare performance, and choose based on your specific needs!
+**Try next:** Try multiple algorithms, compare performance, and choose based on your specific needs!
 

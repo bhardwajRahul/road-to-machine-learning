@@ -1,6 +1,6 @@
 # Neural Networks Basics Complete Guide
 
-Comprehensive guide to understanding and building neural networks from scratch.
+This guide covers understanding and building neural networks from scratch.
 
 ## Deep learning curriculum map (this guide)
 
@@ -1072,5 +1072,5 @@ for x, y_true, y_pred in zip(X_xor, y_xor, predictions):
 - Learn about regularization techniques
 - Move to [10-deep-learning-frameworks](../10-deep-learning-frameworks/README.md) for frameworks
 
-**Remember**: Understanding fundamentals helps when using frameworks! Master the basics before moving to high-level APIs.
+**Try next:** Understanding fundamentals helps when using frameworks! Master the basics before moving to high-level APIs.
 

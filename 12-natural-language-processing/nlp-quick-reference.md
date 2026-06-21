@@ -94,5 +94,5 @@ classifier = pipeline("sentiment-analysis")
 
 ---
 
-**Remember**: Transformers are state-of-the-art - use them!
+**Try next:** Transformers are state-of-the-art - use them!
 

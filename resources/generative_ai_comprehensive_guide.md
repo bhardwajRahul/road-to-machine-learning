@@ -1949,5 +1949,5 @@ if prompt := st.chat_input("Ask a question..."):
 
 ---
 
-**Remember**: Generative AI is a rapidly evolving field. Start with simple applications, understand the fundamentals, and gradually build more complex systems. Always consider ethical implications, costs, and limitations when building production applications!
+**Try next:** Generative AI is a rapidly evolving field. Start with simple applications, understand the fundamentals, and gradually build more complex systems. Always consider ethical implications, costs, and limitations when building production applications!
 

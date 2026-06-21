@@ -13,6 +13,8 @@ Don't worry! We welcome contributors of all skill levels. Whether you're:
 
 Your contribution matters! This is a great way to learn, practice, and give back to the ML community.
 
+**Style:** Follow [WRITING-STYLE.md](WRITING-STYLE.md) for lesson tone, numbering (Module vs Stage), and punctuation.
+
 ## How to Contribute
 
 ### Reporting Issues
@@ -121,5 +123,5 @@ Your contributions make this repository better for everyone learning ML. Thank y
 
 ---
 
-**Remember**: The goal is to help people learn ML. Keep contributions clear, beginner-friendly, and well-documented.
+**Try next:** The goal is to help people learn ML. Keep contributions clear, beginner-friendly, and well-documented.
 

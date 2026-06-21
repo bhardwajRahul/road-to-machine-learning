@@ -615,5 +615,5 @@ Actual Negative   TN      FP
 
 ---
 
-**Remember**: Understanding terminology helps you understand ML concepts and communicate effectively!
+**Try next:** Understanding terminology helps you understand ML concepts and communicate effectively!
 

@@ -1,6 +1,6 @@
 # MLOps Basics Complete Guide
 
-Comprehensive guide to managing the complete ML lifecycle.
+This guide covers managing the complete ML lifecycle.
 
 ## Table of Contents
 
@@ -8,7 +8,7 @@ Comprehensive guide to managing the complete ML lifecycle.
 - [Version Control for ML](#version-control-for-ml)
 - [Experiment Tracking](#experiment-tracking)
 - [Model Registry](#model-registry)
-- [CI/CD for ML](#ci-cd-for-ml)
+- [CI/CD for ML](#cicd-for-ml)
 - [Data Pipeline](#data-pipeline)
 - [Reproducibility](#reproducibility)
 - [Practice Exercises](#practice-exercises)
@@ -1668,5 +1668,5 @@ dvc repro
 - Explore advanced MLOps tools
 - Practice with [16-projects-beginner](../16-projects-beginner/README.md)
 
-**Remember**: MLOps makes ML production-ready! Invest time in proper tooling and practices.
+**Try next:** MLOps makes ML production-ready! Invest time in proper tooling and practices.
 

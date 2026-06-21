@@ -433,5 +433,5 @@ def predict(request: PredictionRequest):
 
 ---
 
-**Remember**: A data product is only valuable if it's used. Focus on solving real business problems, getting user feedback, and continuously improving!
+**Try next:** A data product is only valuable if it's used. Focus on solving real business problems, getting user feedback, and continuously improving!
 

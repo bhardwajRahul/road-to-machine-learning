@@ -1,6 +1,6 @@
 # Handling Imbalanced Data Complete Guide
 
-Comprehensive guide to handling imbalanced datasets in machine learning. Learn to build effective models when classes are not equally represented, with detailed explanations, code examples, and real-world applications.
+This guide covers handling imbalanced datasets in machine learning. Learn to build effective models when classes are not equally represented, with detailed explanations, code examples, and real-world applications.
 
 ## Table of Contents
 
@@ -644,5 +644,5 @@ cost_matrix = {
 
 ---
 
-**Remember**: Handling imbalanced data is crucial for real-world ML applications! The minority class is often the most important, so don't let high accuracy fool you. Focus on metrics that matter for your business problem.
+**Try next:** Handling imbalanced data is crucial for real-world ML applications! The minority class is often the most important, so don't let high accuracy fool you. Focus on metrics that matter for your business problem.
 

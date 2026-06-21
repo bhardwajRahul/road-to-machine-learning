@@ -233,5 +233,5 @@ Each module includes:
 
 ---
 
-**Remember**: A strong mathematical foundation will make all subsequent ML learning much smoother. Take your time with this phase!
+**Try next:** A strong mathematical foundation will make all subsequent ML learning much smoother. Take your time with this phase!
 

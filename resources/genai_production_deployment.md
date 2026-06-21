@@ -725,5 +725,5 @@ def sanitize_input(text: str) -> str:
 
 ---
 
-**Remember**: Production GenAI deployment requires careful planning, monitoring, and optimization. Start simple, iterate, and scale gradually!
+**Try next:** Production GenAI deployment requires careful planning, monitoring, and optimization. Start simple, iterate, and scale gradually!
 

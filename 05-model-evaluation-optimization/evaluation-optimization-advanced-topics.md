@@ -492,5 +492,5 @@ param_grid = {
 - Profile model performance
 - Move to ensemble methods module
 
-**Remember**: Proper evaluation is crucial for reliable model performance estimates!
+**Try next:** Proper evaluation is crucial for reliable model performance estimates!
 

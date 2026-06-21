@@ -21,5 +21,5 @@ explanation = explainer.explain_instance(X_test.iloc[0].values, model.predict_pr
 
 ---
 
-**Remember**: Explainability builds trust!
+**Try next:** Explainability builds trust!
 

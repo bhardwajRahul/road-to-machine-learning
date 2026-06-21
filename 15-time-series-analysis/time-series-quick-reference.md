@@ -95,5 +95,5 @@ model = Sequential([
 
 ---
 
-**Remember**: Always respect temporal order!
+**Try next:** Always respect temporal order!
 

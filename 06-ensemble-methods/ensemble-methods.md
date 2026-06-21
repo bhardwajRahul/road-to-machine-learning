@@ -1,6 +1,6 @@
 # Ensemble Methods Complete Guide
 
-Comprehensive guide to combining multiple models for better performance.
+This guide covers combining multiple models for better performance.
 
 ## Advanced machine learning curriculum map (this guide)
 
@@ -1230,5 +1230,5 @@ print(f"Multi-Level Ensemble Accuracy: {accuracy_score(y_test, final_pred):.3f}"
 - Try combining different ensemble methods
 - Move to [07-feature-engineering](../07-feature-engineering/README.md)
 
-**Remember**: Ensembles often win competitions! Diversity and proper tuning are key to success.
+**Try next:** Ensembles often win competitions! Diversity and proper tuning are key to success.
 

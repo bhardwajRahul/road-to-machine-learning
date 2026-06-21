@@ -6,7 +6,7 @@ Comprehensive guide to enterprise data platforms and tools used in production da
 
 - [Introduction](#introduction)
 - [Data Warehouses](#data-warehouses)
-- [ETL/ELT Tools](#etl-elt-tools)
+- [ETL/ELT Tools](#etlelt-tools)
 - [Data Quality Tools](#data-quality-tools)
 - [Business Intelligence Tools](#business-intelligence-tools)
 - [Integration](#integration)
@@ -451,5 +451,5 @@ df_transformed.to_csv('s3://bucket/data.csv', index=False)
 
 ---
 
-**Remember**: Enterprise tools provide powerful capabilities but require proper setup and configuration. Start with understanding your requirements, then choose tools that best fit your needs!
+**Try next:** Enterprise tools provide powerful capabilities but require proper setup and configuration. Start with understanding your requirements, then choose tools that best fit your needs!
 

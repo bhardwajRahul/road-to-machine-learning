@@ -1,6 +1,6 @@
 # Data Visualization Complete Guide
 
-Comprehensive guide to Matplotlib and Seaborn for creating beautiful and informative visualizations.
+This guide covers Matplotlib and Seaborn for creating beautiful and informative visualizations.
 
 ## ML toolbox curriculum map (this guide)
 
@@ -1445,5 +1445,5 @@ if __name__ == '__main__':
 - Build a Dash dashboard for your project
 - Move to [02-introduction-to-ml](../02-introduction-to-ml/README.md) for ML concepts
 
-**Remember**: Good visualizations tell a story - always think about what message you want to convey! Plotly and Dash take your visualizations to the next level with interactivity and web deployment.
+**Try next:** Good visualizations tell a story - always think about what message you want to convey! Plotly and Dash take your visualizations to the next level with interactivity and web deployment.
 

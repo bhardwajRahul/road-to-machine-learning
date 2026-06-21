@@ -544,5 +544,5 @@ plt.show()
 
 ---
 
-**Remember**: Proper evaluation is the foundation of reliable machine learning models!
+**Try next:** Proper evaluation is the foundation of reliable machine learning models!
 

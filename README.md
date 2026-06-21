@@ -1,4 +1,4 @@
-# Road to ML: From Zero to Hero
+﻿# Road to ML: From Zero to Hero
 
 <div align="center">
 
@@ -6,7 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/NabidAlam/road-to-machine-learning?style=social)](https://github.com/NabidAlam/road-to-machine-learning/network/members)
 [![GitHub issues](https://img.shields.io/github/issues/NabidAlam/road-to-machine-learning)](https://github.com/NabidAlam/road-to-machine-learning/issues)
 [![GitHub license](https://img.shields.io/github/license/NabidAlam/road-to-machine-learning)](https://github.com/NabidAlam/road-to-machine-learning/blob/main/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?logo=youtube&logoColor=white)](https://www.youtube.com/@NabidInMotion?sub_confirmation=1)
 
 **A comprehensive, step-by-step guide to learning Machine Learning from absolute basics to advanced topics**
@@ -164,20 +164,19 @@ Structured courses usually stack Python, then math and stats, then tabular ML, t
 ### Stage 1: Data Fundamentals
 **Goal**: Master data manipulation and visualization
 
-- **01-python-for-data-science** — **Data processing & visualization (ML toolbox)**
-  - **NumPy:** fundamentals, `ndarray`, attributes and dtypes; array creation (existing data, from scratch, ranges, random); indexing, slicing, copies, and advanced iteration; reshaping and transformations; broadcasting; sorting, searching, and counting; arithmetic, mathematical, and logical operations; statistical analysis and linear algebra basics
-  - **Pandas:** Series and DataFrame; CSV/Excel and file handling; `loc` / `iloc`, indexing, and filtering; modifying data (add/drop rows and columns, assign values); duplicates, missing data, and datetime operations; apply functions, aggregation, and `GroupBy`; merge/join/concat; MultiIndex; stack/unstack, `melt`, pivot tables; vectorized string operations
-  - Polars: High-performance data manipulation (10-100x faster than Pandas for large datasets)
-  - Dask: Parallel Pandas for larger-than-memory datasets
-  - **Matplotlib:** line, scatter, histogram, bar, and pie plots; Matplotlib & Seaborn for broader visualization
-  - **Project:** Build a machine learning model from scratch (see `00-prerequisites` NumPy neural network tutorial and `02-introduction-to-ml` first ML project)
-  - Plotly & Dash: Interactive visualizations and web applications
-  - Streamlit: Building interactive dashboards and ML applications
-  - Flask: Web applications and REST APIs
-  - Tableau: Professional data visualization and dashboards
-  - EDA, Data Sources, Regular Expressions, Advanced Data Wrangling
-  - ETL with AWS RDS: Extract, Transform, Load pipelines
-  - Advanced Selenium Web Scraping: Chromedriver, dynamic content, Smartprix example
+**Core path** (finish before Stage 2):
+- **01-python-for-data-science**
+  - NumPy fundamentals, array operations, broadcasting, linear algebra basics
+  - Pandas Series and DataFrame, indexing, GroupBy, merge/join, missing data
+  - Matplotlib and Seaborn for core plots
+  - Exploratory data analysis and data wrangling
+
+**Optional depth** (add when a job or project needs them):
+- Polars and Dask for larger datasets
+- Plotly, Dash, Streamlit, Flask, and Tableau for apps and dashboards
+- ETL with AWS RDS, Selenium scraping, regular expressions
+
+- **Project:** Build a first model end-to-end (see `02-introduction-to-ml/first-ml-project-tutorial.md` and beginner projects in module 16)
 
 ### Stage 2: Machine Learning Basics
 **Goal**: Understand core ML concepts and algorithms
@@ -238,38 +237,38 @@ Structured courses usually stack Python, then math and stats, then tabular ML, t
 ### Stage 4: Unsupervised Learning
 **Goal**: Make sense of data when nobody handed you labels.
 
-Module **08** is where you stop pretending every dataset comes with a target column. You cluster, reduce dimensions, spot weird points, and learn to argue *why* a grouping is plausible—skills you will reuse in EDA, modeling, and paper-style analysis. Follow the unsupervised walkthrough when you want structure beyond “try k=3”: [unsupervised learning map](08-unsupervised-learning/unsupervised-learning.md#advanced-machine-learning-curriculum-map-this-guide).
+Module **08** is where you work without a target column. You cluster, reduce dimensions, spot outliers, and explain why a grouping is plausible. These skills carry into EDA, modeling, and research writing. Follow the unsupervised walkthrough when you want structure beyond trying k=3. [Unsupervised learning map](08-unsupervised-learning/unsupervised-learning.md#advanced-machine-learning-curriculum-map-this-guide).
 
 - **08-unsupervised-learning** — K-Means, hierarchical and density-based clustering, validation and plots, PCA / t-SNE / SVD, **LDA (supervised dimensionality reduction)** beside PCA, anomaly detection, **association rules (e.g. Apriori / market-basket style)**.
 
 ### Stage 5: Deep Learning Fundamentals
 **Goal**: Build intuition that survives new architectures.
 
-Most breakthroughs are still “layers + nonlinearity + data + optimization.” Here you learn to **read training curves**, **sanity-check gradients**, and know *why* a linear model fails—before frameworks hide the details. If you are aiming toward a **research-scientist** style path, treat this phase as your lab notebook habits: small experiments, controlled changes, reproducible runs.
+Most breakthroughs are still “layers + nonlinearity + data + optimization.” Here you learn to **read training curves**, **sanity-check gradients**, and see why a linear model fails before frameworks hide the details. If you aim toward a research-scientist path, treat this stage as lab notebook habits. Run small experiments, change one thing at a time, and keep runs reproducible.
 
 - **09-neural-networks-basics** — From linear limits to MLPs: activations, losses, backpropagation as chain rule, optimizers (SGD family through Adam), regularization, initialization, and what actually breaks training. [Study map →](09-neural-networks-basics/neural-networks.md#deep-learning-curriculum-map-this-guide)
 
 - **10-deep-learning-frameworks** — Turn math into working code: PyTorch tensors and autograd, real training loops, Keras ergonomics, saving models, and shipping-friendly formats when you need them. [Study map →](10-deep-learning-frameworks/deep-learning-frameworks.md#deep-learning-curriculum-map-this-guide) · [Practice builds →](17-projects-intermediate/README.md#deep-learning-curriculum-map-projects) (MNIST, churn, tabular regression)
 
 ### Stage 6: Specialized Deep Learning
-**Goal**: See the world as tensors—pixels and tokens.
+**Goal**: See the world as tensors. Pixels and tokens.
 
-This is where **vision** and **language** split into specialist toolkits, but the mindset stays the same: inductive biases (convolution for locality, attention for pairing), careful data pipelines, and honest evaluation. Research-minded learners should linger here: compare baselines, ablate one change at a time, and write down *what surprised you*.
+Vision and language split into specialist toolkits here, but the mindset stays the same. Use the right inductive bias (convolution for locality, attention for pairing), build careful data pipelines, and evaluate honestly. Compare baselines, ablate one change at a time, and write down what surprised you.
 
-**Where to dive:** [Vision roadmap](11-computer-vision/computer-vision.md#cnn-and-modern-vision-curriculum-map-this-guide) · [Language & sequence roadmap](12-natural-language-processing/nlp.md#cnn-and-rnn-curriculum-map-this-guide) · [PyTorch bridge for CV + NLP](10-deep-learning-frameworks/deep-learning-frameworks.md#cnn-and-rnn-curriculum-map-pytorch) · [Open-ended projects](18-projects-advanced/README.md#cnn-and-rnn-curriculum-map-projects)
+**Where to dive:** [Vision roadmap](11-computer-vision/computer-vision.md#cnn-and-modern-vision-curriculum-map-this-guide) · [Language roadmap](12-natural-language-processing/nlp.md#cnn-and-rnn-curriculum-map-this-guide) · [PyTorch bridge for CV + NLP](10-deep-learning-frameworks/deep-learning-frameworks.md#cnn-and-rnn-curriculum-map-pytorch) · [Open-ended projects](18-projects-advanced/README.md#cnn-and-rnn-curriculum-map-projects)
 
-- **11-computer-vision** — How images become features: convolutions, geometry (padding/stride), modern CNN families, training tricks, augmentation, transfer learning from strong backbones, detection and segmentation, generative models, and how ViT-style ideas connect to the rest of ML.
+- **11-computer-vision** — Convolutions, CNN families, augmentation, transfer learning, detection, segmentation, and ViT-style ideas.
 
-- **12-natural-language-processing** — Sequences first (RNN → LSTM/GRU → bidirectional stacks), then the attention era: self-attention, encoders/decoders, inference, and practical Hugging Face workflows—plus retrieval and sentiment tasks that mirror messy real text.
+- **12-natural-language-processing** — RNN to LSTM/GRU, attention, transformers, Hugging Face workflows, retrieval, and sentiment on messy text.
 
 ### Stage 7: Generative AI & Modern LLM Applications
-**Goal**: Work *with* foundation models, not against them.
+**Goal**: Work with foundation models, not against them.
 
-You rarely train a frontier LLM from scratch; you **compose**—prompts, retrieval, tools, evaluation harnesses, and guardrails. This phase is about shipping ideas quickly *without* abandoning rigor: trace failures, measure hallucinations, version prompts like code, and know when a vector DB is the right memory and when it is theater.
+You rarely train a frontier LLM from scratch. You compose prompts, retrieval, tools, evaluation harnesses, and guardrails. This stage is about shipping ideas quickly while keeping rigor. Trace failures, measure hallucinations, version prompts like code, and know when a vector DB is the right memory.
 
-- **25-generative-ai-llms** — Prompt patterns, embeddings and vector search, RAG pipelines, agents and orchestration, and patterns that survive contact with production. Deeper reads: [GenAI overview](resources/generative_ai_comprehensive_guide.md), [RAG guide](resources/rag_comprehensive_guide.md), [LangChain](resources/langchain_guide.md), [Agents](resources/ai_agents_guide.md).
+- **25-generative-ai-llms** — Prompt patterns, embeddings, vector search, RAG pipelines, agents, and production patterns. Deeper reads in [GenAI overview](resources/generative_ai_comprehensive_guide.md), [RAG guide](resources/rag_comprehensive_guide.md), [LangChain](resources/langchain_guide.md), [Agents](resources/ai_agents_guide.md).
 
-**Pacing:** Roughly 1–2 months full-time (2–4 part-time), often best **after** Stage 6 or **alongside** NLP if you learn by building products early.
+**Pacing:** Roughly 1–2 months full-time (2–4 part-time), often best after Stage 6 or alongside NLP if you learn by building products early.
 
 ### Module 15: Time series (when your world has a clock)
 
@@ -828,6 +827,7 @@ road-to-machine-learning/
  CONTRIBUTING.md
  DISCLAIMER.md
  START-HERE.md
+ WRITING-STYLE.md
  GETTING_STARTED.md
  LEARNING_ROADMAP.md
  QUICK_START.md
@@ -963,7 +963,7 @@ Follow my curated playlist for guided video walkthroughs:
 
 ## Learning Tips
 
-1. **Follow the Order**: Modules are designed to build on each other. Don't skip ahead!
+1. **Follow the core path first**: Modules build on each other. Finish Stage 0–2 before jumping to deep learning unless you already know the basics.
 2. **Practice Regularly**: Code along with examples and complete all exercises
 3. **Build Projects**: Apply what you learn by building projects
 4. **Join Communities**: Engage with others learning ML
@@ -977,7 +977,7 @@ Follow my curated playlist for guided video walkthroughs:
 ### Getting Started
 
 **Q: I'm a complete beginner. Where do I start?**  
-A: Start with `00-prerequisites` - specifically `01-python-basics.md`. No prior experience needed! Follow the modules in order.
+A: Read [START-HERE.md](START-HERE.md), then open `00-prerequisites/01-python-basics.md`. No prior experience needed. Follow modules in order.
 
 **Q: How long will it take to complete this roadmap?**  
 A: Realistic time estimates vary significantly based on your background and time commitment:
@@ -986,8 +986,8 @@ A: Realistic time estimates vary significantly based on your background and time
 
 | Commitment Level | Hours/Week | Minimum | Standard | Comprehensive |
 |------------------|------------|---------|----------|----------------|
-| **Full-Time** | 30-40 hrs | 8-10 months | 12-15 months | 15-18 months |
-| **Part-Time** | 10-15 hrs | 18-24 months | 24-30 months | 30-36 months |
+| **Full-Time** | 30-40 hrs | 12-15 months | 15-18 months | 18-22 months |
+| **Part-Time** | 10-15 hrs | 24-30 months | 30-36 months | 36-39 months |
 
 **Definitions:**
 - **Minimum**: Core concepts, skips some advanced topics
@@ -1062,7 +1062,7 @@ A: Any works! Popular choices:
 A: No! Install packages as you need them. Each module lists required packages. Start with `requirements.txt` for core packages.
 
 **Q: Python 3.8, 3.9, 3.10, or 3.11?**  
-A: Python 3.9 or 3.10 recommended. Most libraries support these versions well. Avoid 3.12+ initially as some packages may not be fully compatible yet.
+A: Python **3.10–3.12** recommended (3.10 or 3.11 for widest library compatibility). Use a virtual environment and `pip install -r requirements.txt` from the repository root.
 
 ### Projects
 
@@ -1229,7 +1229,7 @@ By completing this roadmap, you'll be able to:
 | **Learning Modules** | 26 | Modules 00-24, 25 covering all ML topics from basics to advanced including Generative AI |
 | **Projects** | 23 | 6 beginner + 8 intermediate + 9 advanced with complete code and READMEs |
 | **Resource Guides** | 50 | Cheatsheets, tutorials, and career guides |
-| **Markdown Files** | 207+ | Comprehensive content, code examples, and exercises |
+| **Markdown Files** | 270+ | Lessons, code examples, and exercises |
 | **Learning Time (Full-Time)** | 15-22 months | 30-40 hours/week for comprehensive coverage |
 | **Learning Time (Part-Time)** | 30-39 months | 10-15 hours/week for comprehensive coverage |
 | **Prerequisites** | Zero | Start from scratch - no prior experience needed! |

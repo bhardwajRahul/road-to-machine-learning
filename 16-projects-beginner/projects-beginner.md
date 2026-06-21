@@ -1,6 +1,6 @@
 # Beginner Projects Complete Guide
 
-Comprehensive guide to building your first machine learning projects.
+This guide covers building your first machine learning projects.
 
 ## Table of Contents
 
@@ -342,5 +342,5 @@ git commit -m "Initial project setup"
 
 ---
 
-**Remember**: Projects are where learning happens! Start simple and iterate.
+**Try next:** Projects are where learning happens! Start simple and iterate.
 

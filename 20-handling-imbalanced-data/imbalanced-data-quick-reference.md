@@ -23,5 +23,5 @@ from sklearn.metrics import f1_score, average_precision_score
 
 ---
 
-**Remember**: Don't use accuracy for imbalanced data!
+**Try next:** Don't use accuracy for imbalanced data!
 

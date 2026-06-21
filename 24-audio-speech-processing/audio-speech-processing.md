@@ -1,6 +1,6 @@
 # Audio and Speech Processing Complete Guide
 
-Comprehensive guide to audio and speech processing with deep learning.
+This guide covers audio and speech processing with deep learning.
 
 ## Table of Contents
 

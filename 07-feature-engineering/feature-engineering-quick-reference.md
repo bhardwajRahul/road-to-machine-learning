@@ -583,5 +583,5 @@ if abs(skew(df['feature'])) > 1:
 - Learn domain-specific feature engineering
 - Move to next module
 
-**Remember**: Good features beat complex algorithms!
+**Try next:** Good features beat complex algorithms!
 

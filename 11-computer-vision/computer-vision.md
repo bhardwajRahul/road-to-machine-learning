@@ -1,6 +1,6 @@
 # Computer Vision Complete Guide
 
-Comprehensive guide to Convolutional Neural Networks (CNNs) and image processing.
+This guide covers Convolutional Neural Networks (CNNs) and image processing.
 
 ## CNN and modern vision curriculum map (this guide)
 
@@ -2507,5 +2507,5 @@ model.fit(train_data, epochs=5)
 - Explore object detection and segmentation
 - Move to [12-natural-language-processing](../12-natural-language-processing/README.md)
 
-**Remember**: CNNs revolutionized computer vision! Practice with real datasets to master them.
+**Try next:** CNNs revolutionized computer vision! Practice with real datasets to master them.
 

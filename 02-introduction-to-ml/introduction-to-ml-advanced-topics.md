@@ -602,5 +602,5 @@ class ModelVersioning:
 
 ---
 
-**Remember**: Advanced ML practices will make your projects more successful and maintainable!
+**Try next:** Advanced ML practices will make your projects more successful and maintainable!
 

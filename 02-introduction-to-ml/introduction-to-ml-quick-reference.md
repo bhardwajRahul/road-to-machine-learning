@@ -307,5 +307,5 @@ for i in range(10):
 
 ---
 
-**Remember**: This is a quick reference. For detailed explanations, see the main guides!
+**Try next:** This is a quick reference. For detailed explanations, see the main guides!
 

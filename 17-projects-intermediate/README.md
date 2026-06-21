@@ -11,9 +11,9 @@ Before starting these projects, you should have completed:
 - Module 07: Feature Engineering
 - Module 08: Unsupervised Learning (for some projects)
 
-## Advanced machine learning curriculum map (projects)
+## Bonus project ideas (not in the official 23)
 
-Suggested builds aligned with **trees, SVM, clustering, fraud, and URL classification** (see module maps in `04`, `06`, `08`).
+These three builds extend the intermediate map. They are optional extras, not counted in the canonical 23-project list in the main README.
 
 | Project | Focus | Dataset / start |
 |---------|--------|-----------------|
@@ -32,7 +32,7 @@ Suggested builds aligned with **trees, SVM, clustering, fraud, and URL classific
 ##  Projects
 
 ### Project 1: Handwritten Digit Recognition (MNIST)
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 3-5 days  
 **Skills**: Neural Networks, Image Processing, Deep Learning Basics
 
@@ -54,7 +54,7 @@ Build a neural network to classify handwritten digits (0-9).
 ---
 
 ### Project 2: Customer Churn Prediction
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 4-5 days  
 **Skills**: Classification, Feature Engineering, Imbalanced Data, Business Metrics
 
@@ -77,7 +77,7 @@ Predict which customers will leave a service (churn prediction).
 ---
 
 ### Project 3: Movie Recommendation System
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 5-7 days  
 **Skills**: Collaborative Filtering, Content-Based Filtering, Matrix Factorization
 
@@ -100,7 +100,7 @@ Build a recommendation system to suggest movies to users.
 ---
 
 ### Project 4: Credit Card Fraud Detection
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 4-5 days  
 **Skills**: Anomaly Detection, Imbalanced Data, Classification, Feature Engineering
 
@@ -123,7 +123,7 @@ Detect fraudulent credit card transactions.
 ---
 
 ### Project 5: Customer Segmentation
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 3-4 days  
 **Skills**: Unsupervised Learning, Clustering, Dimensionality Reduction
 
@@ -146,7 +146,7 @@ Segment customers into groups based on behavior and demographics.
 ---
 
 ### Project 6: Time Series Forecasting
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 4-5 days  
 **Skills**: Time Series Analysis, ARIMA, LSTM, Feature Engineering
 
@@ -169,7 +169,7 @@ Forecast future values in a time series (sales, stock prices, etc.).
 ---
 
 ### Project 7: Feature Engineering Mastery
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 4-5 days  
 **Skills**: Feature Engineering, Feature Selection, sklearn Pipeline, Advanced Encoding
 
@@ -193,7 +193,7 @@ Master comprehensive feature engineering techniques on a complex real-world data
 ---
 
 ### Project 8: Ensemble Methods Comparison
-**Difficulty**:   
+**Difficulty**: Intermediate  
 **Time**: 4-5 days  
 **Skills**: Ensemble Methods, Bagging, Boosting, Stacking, Hyperparameter Tuning
 

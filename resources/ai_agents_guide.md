@@ -1284,5 +1284,5 @@ result = crew.kickoff()
 
 ---
 
-**Remember**: AI agents are powerful but require careful design. Start simple, test thoroughly, and iterate!
+**Try next:** AI agents are powerful but require careful design. Start simple, test thoroughly, and iterate!
 

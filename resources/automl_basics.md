@@ -559,5 +559,5 @@ final_score = automl.score(X_test, y_test)
 
 ---
 
-**Remember**: AutoML is a powerful tool, but it's not a replacement for understanding ML. Use it to accelerate development, not to skip learning!
+**Try next:** AutoML is a powerful tool, but it's not a replacement for understanding ML. Use it to accelerate development, not to skip learning!
 

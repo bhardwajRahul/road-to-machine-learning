@@ -884,4 +884,4 @@ This guide provides clear, role-specific learning paths for different careers in
 
 ---
 
-**Remember**: These are guidelines, not strict rules. Adjust based on your background, goals, and available time. The most important thing is consistent practice and building real projects!
+**Try next:** These are guidelines, not strict rules. Adjust based on your background, goals, and available time. The most important thing is consistent practice and building real projects!

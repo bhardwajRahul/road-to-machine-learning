@@ -1,6 +1,6 @@
 # Exploratory Data Analysis (EDA) - Complete Guide
 
-Comprehensive guide to performing systematic exploratory data analysis to understand your data before modeling.
+This guide covers performing systematic exploratory data analysis to understand your data before modeling.
 
 ## ML for beginners curriculum map (this guide)
 
@@ -956,5 +956,5 @@ Expected Impact: 20% reduction in churn = $400K saved
 
 ---
 
-**Remember**: Good EDA leads to better models. Spend time understanding your data before modeling, and communicate your findings clearly to drive action!
+**Try next:** Good EDA leads to better models. Spend time understanding your data before modeling, and communicate your findings clearly to drive action!
 

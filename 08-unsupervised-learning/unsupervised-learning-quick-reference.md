@@ -545,5 +545,5 @@ print(f"Explained variance: {cumulative[n_components-1]:.3f}")
 - Explore semi-supervised learning
 - Move to next module
 
-**Remember**: Unsupervised learning reveals hidden patterns - use domain knowledge to validate!
+**Try next:** Unsupervised learning reveals hidden patterns - use domain knowledge to validate!
 

@@ -1,6 +1,6 @@
 # Model Deployment Complete Guide
 
-Comprehensive guide to deploying machine learning models to production.
+This guide covers deploying machine learning models to production.
 
 ## Table of Contents
 
@@ -2617,5 +2617,5 @@ def detect_data_drift(new_features, training_features):
 - Explore edge deployment
 - Move to [14-mlops-basics](../14-mlops-basics/README.md)
 
-**Remember**: Deployment is as important as training! A great model is useless if it can't serve predictions.
+**Try next:** Deployment is as important as training! A great model is useless if it can't serve predictions.
 

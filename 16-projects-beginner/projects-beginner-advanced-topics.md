@@ -112,5 +112,5 @@ plt.show()
 
 ---
 
-**Remember**: Advanced techniques improve performance but start simple!
+**Try next:** Advanced techniques improve performance but start simple!
 

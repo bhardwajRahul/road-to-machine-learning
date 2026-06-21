@@ -1,11 +1,11 @@
 # Working with Dates and Times - Complete Guide
 
-Comprehensive guide to handling dates, times, and time-based data in Python using Pandas and datetime.
+This guide covers handling dates, times, and time-based data in Python using Pandas and datetime.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Creating Date/Time Objects](#creating-date-time-objects)
+- [Creating Date/Time Objects](#creating-datetime-objects)
 - [Parsing Dates](#parsing-dates)
 - [Date Arithmetic](#date-arithmetic)
 - [Time Series Indexing](#time-series-indexing)
@@ -461,5 +461,5 @@ Filter data based on date ranges and extract specific periods.
 
 ---
 
-**Remember**: Date/time handling is crucial for time series analysis. Master these operations for effective data analysis!
+**Try next:** Date/time handling is crucial for time series analysis. Master these operations for effective data analysis!
 

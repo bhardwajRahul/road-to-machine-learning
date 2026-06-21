@@ -576,5 +576,5 @@ st.metric('Std Dev', filtered_df['value'].std())
 
 ---
 
-**Remember**: These advanced techniques will make you a more efficient and effective data scientist!
+**Try next:** These advanced techniques will make you a more efficient and effective data scientist!
 

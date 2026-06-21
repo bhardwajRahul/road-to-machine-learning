@@ -1,6 +1,6 @@
 # Problem Identification and Algorithm Selection Guide
 
-Comprehensive guide to identifying ML problems and selecting the right algorithms for your use case.
+This guide covers identifying ML problems and selecting the right algorithms for your use case.
 
 ## Table of Contents
 
@@ -524,5 +524,5 @@ Before choosing an algorithm, ask:
 
 ---
 
-**Remember**: There's no "best" algorithm - the best one depends on your specific problem, data, and requirements!
+**Try next:** There's no "best" algorithm - the best one depends on your specific problem, data, and requirements!
 

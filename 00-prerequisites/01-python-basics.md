@@ -8,12 +8,12 @@ Complete guide to Python fundamentals needed for machine learning and data scien
 - [Variables and Data Types](#variables-and-data-types)
 - [In-Depth Strings](#in-depth-strings)
 - [Print Statements](#print-statements)
-- [Type Conversion and Truthy/Falsy Values](#type-conversion-and-truthy-falsy-values)
+- [Type Conversion and Truthy/Falsy Values](#type-conversion-and-truthyfalsy-values)
 - [Input Statements](#input-statements)
 - [Control Flow](#control-flow)
 - [Functions](#functions)
 - [Data Structures](#data-structures)
-- [File I/O](#file-i-o)
+- [File I/O](#file-io)
 - [Tell, seek, and read position](#tell-seek-and-read-position)
 - [Error Handling](#error-handling)
 - [Object-Oriented Programming](#object-oriented-programming)
@@ -1906,5 +1906,5 @@ root.mainloop()
 - Try solving problems on [HackerRank](https://www.hackerrank.com/) or [LeetCode](https://leetcode.com/)
 - Move to [02-linear-algebra.md](02-linear-algebra.md) when comfortable
 
-**Remember**: Practice is key! Code along with examples and experiment with variations.
+**Try next:** Practice is key! Code along with examples and experiment with variations.
 

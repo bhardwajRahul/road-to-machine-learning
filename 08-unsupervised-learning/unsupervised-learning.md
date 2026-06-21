@@ -1,6 +1,6 @@
 # Unsupervised Learning Complete Guide
 
-Comprehensive guide to finding patterns in unlabeled data.
+This guide covers finding patterns in unlabeled data.
 
 ## Advanced machine learning curriculum map (this guide)
 
@@ -959,5 +959,5 @@ for i, (name1, result1) in enumerate(results.items()):
 - Learn association rules (market basket analysis)
 - Move to [09-neural-networks-basics](../09-neural-networks-basics/README.md)
 
-**Remember**: Unsupervised learning reveals hidden patterns! Use domain knowledge to validate results.
+**Try next:** Unsupervised learning reveals hidden patterns! Use domain knowledge to validate results.
 

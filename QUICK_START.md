@@ -1,6 +1,8 @@
-#  Quick Start Guide
+# Quick Start Guide
 
-Get started with Road to ML in 5 minutes!
+Get the environment running in about 5 minutes. For full navigation, read [START-HERE.md](START-HERE.md) first.
+
+> **Note:** The week-by-week schedule below is an **accelerated path** for learners who already study full-time. The main [README](README.md) estimates **15–22 months** full-time for the complete curriculum.
 
 ## Step 1: Clone the Repository
 
@@ -9,34 +11,24 @@ git clone https://github.com/NabidAlam/road-to-machine-learning.git
 cd road-to-machine-learning
 ```
 
+If this folder lives inside the [Nabid In Motion study hub](https://github.com/NabidAlam/nabidinmotion) as a submodule, run commands from `road-to-machine-learning/` inside that parent repo.
+
 ## Step 2: Set Up Environment
 
-### Option A: Using Anaconda (Recommended)
+### Option A: Using Anaconda
 
 ```bash
-# Install Anaconda from https://www.anaconda.com/products/individual
-
-# Create environment
-conda create -n ml-env python=3.10
+conda create -n ml-env python=3.11
 conda activate ml-env
-
-# Install packages
 pip install -r requirements.txt
 ```
 
 ### Option B: Using Python venv
 
 ```bash
-# Create virtual environment
 python -m venv ml-env
-
-# Activate (Windows)
-ml-env\Scripts\activate
-
-# Activate (Mac/Linux)
-source ml-env/bin/activate
-
-# Install packages
+ml-env\Scripts\activate          # Windows
+# source ml-env/bin/activate   # Mac/Linux
 pip install -r requirements.txt
 ```
 
@@ -46,90 +38,35 @@ pip install -r requirements.txt
 pip install jupyter notebook
 ```
 
-## Step 4: Start Learning!
+## Step 4: Start Learning
 
-### For Complete Beginners
+| Your background | Start here |
+|-----------------|------------|
+| Complete beginner | [GETTING_STARTED.md](GETTING_STARTED.md) → Iris project |
+| Know Python | Module 01 → Module 02 |
+| Know ML basics | Pick modules you need → projects in module 16–18 |
 
-1. Start with `00-prerequisites/`
-2. Learn Python basics
-3. Review essential math
-4. Set up your environment
+## Step 5: First Project
 
-### If You Know Python
+1. Go to `16-projects-beginner/project-02-iris-classification/`
+2. Follow the README or run `python iris_classification.py`
+3. Move to house price prediction when ready
 
-1. Skip to `01-python-for-data-science/`
-2. Review NumPy, Pandas, Matplotlib
-3. Move to `02-introduction-to-ml/`
+## Accelerated schedule (optional)
 
-### If You Have ML Basics
+| Weeks | Focus |
+|-------|--------|
+| 1–2 | Modules 00–01 |
+| 3–4 | Modules 02–04 |
+| 5–6 | Modules 05–07 |
+| 7–8 | 2–3 beginner projects |
 
-1. Review modules you need
-2. Focus on projects
-3. Build your portfolio
+Then continue with deep learning (modules 09–12), Stage 7 GenAI (module 25), and deployment (modules 13–14).
 
-## Step 5: Start Your First Project
+## Need Help?
 
-After completing the basics:
+- [START-HERE.md](START-HERE.md) — pick your path
+- [README.md](README.md) — full curriculum hub
+- [LEARNING_ROADMAP.md](LEARNING_ROADMAP.md) — visual stage map
 
-1. Go to `16-projects-beginner/`
-2. Choose a project (start with Iris Classification)
-3. Follow the project README
-4. Build, learn, iterate!
-
-##  Recommended Learning Path
-
-### Week 1-2: Foundation
-- Complete `00-prerequisites/`
-- Complete `01-python-for-data-science/`
-
-### Week 3-4: ML Basics
-- Complete `02-introduction-to-ml/`
-- Complete `03-supervised-learning-regression/`
-- Complete `04-supervised-learning-classification/`
-
-### Week 5-6: Advanced Topics
-- Complete `05-model-evaluation-optimization/`
-- Complete `06-ensemble-methods/`
-- Complete `07-feature-engineering/`
-
-### Week 7-8: Projects
-- Complete 2-3 beginner projects
-- Start intermediate projects
-
-### Continue...
-- Deep learning modules
-- Specialized topics (CV, NLP)
-- Advanced projects
-- Deployment and MLOps
-
-##  Tips
-
-1. **Don't Rush**: Take time to understand concepts
-2. **Practice Daily**: Even 30 minutes helps
-3. **Build Projects**: Apply what you learn
-4. **Join Communities**: Learn from others
-5. **Stay Curious**: Explore beyond the curriculum
-
-##  Need Help?
-
-- Check the main [README.md](README.md)
-- Review module-specific READMEs
-- Open an issue on GitHub
-- Check the [Resources](README.md#resources) section in the main README
-
-##  Your First Milestone
-
-**Goal**: Complete your first ML project in 2 weeks
-
-**Steps**:
-1. Complete prerequisites (3-4 days)
-2. Learn data science basics (3-4 days)
-3. Learn ML basics (3-4 days)
-4. Build Iris Classification project (1 day)
-
-**You can do it!** 
-
----
-
-**Ready to start?** Open `00-prerequisites/README.md` and begin your journey!
-
+**Ready?** Open [GETTING_STARTED.md](GETTING_STARTED.md) or `00-prerequisites/README.md`.

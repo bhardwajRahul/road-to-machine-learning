@@ -520,5 +520,5 @@ print(f"Submission shape: {submission.shape}")
 
 ---
 
-**Remember**: Kaggle is about learning. Focus on improving your skills, not just winning. Every competition teaches you something new!
+**Try next:** Kaggle is about learning. Focus on improving your skills, not just winning. Every competition teaches you something new!
 

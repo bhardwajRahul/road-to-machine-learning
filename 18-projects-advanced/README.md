@@ -25,7 +25,7 @@ Before starting these projects, you should have completed:
 ##  Projects
 
 ### Project 1: Image Classification (CIFAR-10)
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 1-2 weeks  
 **Skills**: CNNs, Transfer Learning, Data Augmentation, Model Optimization
 
@@ -49,7 +49,7 @@ Build a CNN to classify images into 10 categories with high accuracy.
 ---
 
 ### Project 2: Sentiment Analysis on Reviews
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 1-2 weeks  
 **Skills**: NLP, RNNs/LSTMs, Transformers, Text Classification
 
@@ -73,7 +73,7 @@ Build a sentiment analysis system for product/movie reviews.
 ---
 
 ### Project 3: Time Series Forecasting (Advanced)
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 1-2 weeks  
 **Skills**: Time Series, LSTM, ARIMA, Prophet, Feature Engineering
 
@@ -97,7 +97,7 @@ Build advanced forecasting models for complex time series data.
 ---
 
 ### Project 4: LLM Chatbot & RAG System
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 2-3 weeks  
 **Skills**: Modern LLMs, RAG, Vector Databases, LangChain, Prompt Engineering
 
@@ -143,7 +143,7 @@ Build a production-ready RAG (Retrieval-Augmented Generation) system that ingest
 ---
 
 ### Project 5: Object Detection
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 2-3 weeks  
 **Skills**: Computer Vision, Object Detection, YOLO, R-CNN, Transfer Learning
 
@@ -167,7 +167,7 @@ Detect and localize multiple objects in images.
 ---
 
 ### Project 6: End-to-End ML Pipeline
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 2-3 weeks  
 **Skills**: MLOps, CI/CD, Model Deployment, Monitoring, Full Stack
 
@@ -198,7 +198,7 @@ Build a complete, production-ready ML system from data to deployment.
 ---
 
 ### Project 7: Generative Model (GAN/VAE)
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 2-3 weeks  
 **Skills**: Generative Models, GANs, VAEs, Deep Learning
 
@@ -222,7 +222,7 @@ Build a generative model to create new images or text.
 ---
 
 ### Project 8: Model Explainability & Interpretability
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 1-2 weeks  
 **Skills**: SHAP, LIME, Model Interpretation, Explainable AI
 
@@ -247,7 +247,7 @@ Build a comprehensive explainable ML system using SHAP, LIME, and other interpre
 ---
 
 ### Project 9: Model Deployment & Serving
-**Difficulty**:   
+**Difficulty**: Advanced  
 **Time**: 1-2 weeks  
 **Skills**: FastAPI, Docker, REST APIs, Cloud Deployment, Model Monitoring
 

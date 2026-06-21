@@ -144,5 +144,5 @@ def analyze_ab_test(conversions_a, total_a, conversions_b, total_b):
 
 ---
 
-**Remember**: Deployment is as important as training!
+**Try next:** Deployment is as important as training!
 

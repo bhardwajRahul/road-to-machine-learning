@@ -2425,5 +2425,5 @@ result
 
 ---
 
-**Remember**: Excel is a powerful tool for data analysis. Master the basics first, then gradually learn advanced features. Practice with real datasets and focus on creating clear, actionable insights!
+**Try next:** Excel is a powerful tool for data analysis. Master the basics first, then gradually learn advanced features. Practice with real datasets and focus on creating clear, actionable insights!
 

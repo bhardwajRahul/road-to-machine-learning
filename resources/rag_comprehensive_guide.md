@@ -792,5 +792,5 @@ if __name__ == "__main__":
 
 ---
 
-**Remember**: RAG is powerful but requires careful tuning. Focus on retrieval quality first, then optimize generation. Test with real queries and iterate based on results!
+**Try next:** RAG is powerful but requires careful tuning. Focus on retrieval quality first, then optimize generation. Test with real queries and iterate based on results!
 

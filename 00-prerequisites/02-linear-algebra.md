@@ -1,6 +1,6 @@
 # Linear Algebra for Machine Learning - Deep Dive
 
-Comprehensive guide to linear algebra concepts essential for understanding machine learning algorithms. This is the mathematical foundation of ML.
+This guide covers linear algebra concepts essential for understanding machine learning algorithms. This is the mathematical foundation of ML.
 
 ## Table of Contents
 
@@ -24,13 +24,13 @@ Comprehensive guide to linear algebra concepts essential for understanding machi
   - [Computing Determinants](#computing-determinants)
   - [Properties of Determinants](#properties-of-determinants)
   - [Cofactor Expansion](#cofactor-expansion)
-  - [Cramer's Rule](#cramer-s-rule)
+  - [Cramer's Rule](#cramers-rule)
 - [Diagonalization](#diagonalization)
   - [What is Diagonalization?](#what-is-diagonalization)
   - [Diagonalization Process](#diagonalization-process)
   - [Powers of A](#powers-of-a)
 - [Matrix Exponentials](#matrix-exponentials)
-  - [What is exp(At)?](#what-is-exp-at)
+  - [What is exp(At)?](#what-is-expat)
   - [Computing Matrix Exponential](#computing-matrix-exponential)
   - [Solving Differential Equations](#solving-differential-equations)
 - [Matrix Decompositions](#matrix-decompositions)
@@ -2126,5 +2126,5 @@ Use SVD for low-rank matrix approximation.
 
 ---
 
-**Remember**: Linear algebra is the foundation. Master these concepts, and ML algorithms will make much more sense!
+**Try next:** Linear algebra is the foundation. Master these concepts, and ML algorithms will make much more sense!
 

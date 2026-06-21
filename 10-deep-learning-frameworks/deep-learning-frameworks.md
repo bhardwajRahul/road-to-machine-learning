@@ -1,6 +1,6 @@
 # Deep Learning Frameworks Complete Guide
 
-Comprehensive guide to TensorFlow/Keras and PyTorch for building deep learning models.
+This guide covers TensorFlow/Keras and PyTorch for building deep learning models.
 
 ## Deep learning curriculum map (this guide)
 
@@ -26,7 +26,7 @@ Theory and activations: [Neural networks basics](../09-neural-networks-basics/ne
 - [CNN and RNN curriculum map (PyTorch)](#cnn-and-rnn-curriculum-map-pytorch)
 - [Introduction](#introduction)
 - [Autograd and the computational graph](#autograd-and-the-computational-graph)
-- [TensorFlow/Keras](#tensorflow-keras)
+- [TensorFlow/Keras](#tensorflowkeras)
   - [Installation](#installation)
   - [Sequential API](#sequential-api)
   - [Functional API](#functional-api)
@@ -34,7 +34,7 @@ Theory and activations: [Neural networks basics](../09-neural-networks-basics/ne
   - [Data Preprocessing](#data-preprocessing)
   - [Training](#training)
 - [PyTorch](#pytorch)
-  - [Installation](#installation-1)
+  - [Installation](#installation)
   - [Tensors](#tensors)
   - [Building Models](#building-models)
   - [Training Loop](#training-loop)
@@ -60,7 +60,7 @@ Theory and activations: [Neural networks basics](../09-neural-networks-basics/ne
   - [Architecture of Classification Neural Network](#architecture-of-classification-neural-network)
   - [Creating Classification Data](#creating-classification-data)
   - [Building Classification Model](#building-classification-model)
-  - [Using torch.nn.Sequential](#using-torch-nn-sequential)
+  - [Using torch.nn.Sequential](#using-torchnnsequential)
   - [Loss, Optimizer, and Evaluation Functions](#loss-optimizer-and-evaluation-functions)
   - [From Logits to Probabilities to Labels](#from-logits-to-probabilities-to-labels)
   - [Training and Testing Loops for Classification](#training-and-testing-loops-for-classification)
@@ -75,7 +75,7 @@ Theory and activations: [Neural networks basics](../09-neural-networks-basics/ne
   - [Training and Testing Loops for Batched Data](#training-and-testing-loops-for-batched-data)
   - [Running Experiments on GPU](#running-experiments-on-gpu)
   - [Creating a CNN](#creating-a-cnn)
-  - [Breaking Down nn.Conv2d and nn.MaxPool2d](#breaking-down-nn-conv2d-and-nn-maxpool2d)
+  - [Breaking Down nn.Conv2d and nn.MaxPool2d](#breaking-down-nnconv2d-and-nnmaxpool2d)
   - [Making Predictions on Random Test Samples](#making-predictions-on-random-test-samples)
 - [PyTorch Custom Datasets](#pytorch-custom-datasets)
   - [Introduction to Custom Datasets](#introduction-to-custom-datasets)
@@ -91,7 +91,7 @@ Theory and activations: [Neural networks basics](../09-neural-networks-basics/ne
   - [Preparing Text Data with TensorFlow](#preparing-text-data-with-tensorflow)
   - [Building NLP Models with TensorFlow](#building-nlp-models-with-tensorflow)
   - [Transfer Learning for NLP with TensorFlow Hub](#transfer-learning-for-nlp-with-tensorflow-hub)
-  - [Using tf.data API for Efficient Text Processing](#using-tf-data-api-for-efficient-text-processing)
+  - [Using tf.data API for Efficient Text Processing](#using-tfdata-api-for-efficient-text-processing)
   - [Evaluating NLP Models](#evaluating-nlp-models)
 - [TensorFlow Time Series Fundamentals](#tensorflow-time-series-fundamentals)
   - [Introduction to Time Series with TensorFlow](#introduction-to-time-series-with-tensorflow)
@@ -102,7 +102,7 @@ Theory and activations: [Neural networks basics](../09-neural-networks-basics/ne
   - [Ensemble Models for Time Series](#ensemble-models-for-time-series)
   - [Prediction Intervals](#prediction-intervals)
 - [Advanced TensorFlow Features](#advanced-tensorflow-features)
-  - [tf.data API for Performance](#tf-data-api-for-performance)
+  - [tf.data API for Performance](#tfdata-api-for-performance)
   - [Mixed Precision Training](#mixed-precision-training)
   - [Functional API vs Sequential API](#functional-api-vs-sequential-api)
   - [Advanced Transfer Learning: Fine-Tuning](#advanced-transfer-learning-fine-tuning)
@@ -3166,7 +3166,7 @@ ds_test = ds_test.map(preprocess).batch(32)
 - Learn about advanced architectures
 - Move to [11-computer-vision](../11-computer-vision/README.md) for CNNs
 
-**Remember**: Frameworks make it easier, but understanding fundamentals is key! Master both for maximum flexibility.
+**Try next:** Frameworks make it easier, but understanding fundamentals is key! Master both for maximum flexibility.
 
 ---
 
@@ -3350,4 +3350,4 @@ ds_test = ds_test.map(preprocess).batch(32)
 
 ---
 
-**Remember**: The best way to learn is by doing! Start with simple projects and gradually increase complexity. Both frameworks are powerful - mastering both gives you maximum flexibility in your ML career.
+**Try next:** The best way to learn is by doing! Start with simple projects and gradually increase complexity. Both frameworks are powerful - mastering both gives you maximum flexibility in your ML career.

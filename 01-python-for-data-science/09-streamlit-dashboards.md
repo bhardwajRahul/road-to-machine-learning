@@ -591,5 +591,5 @@ if st.sidebar.button("Predict"):
 
 ---
 
-**Remember**: Streamlit makes it easy to share your data science work with others. Start simple and add complexity as needed!
+**Try next:** Streamlit makes it easy to share your data science work with others. Start simple and add complexity as needed!
 

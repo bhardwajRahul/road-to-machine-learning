@@ -531,5 +531,5 @@ if hasattr(model, 'feature_importances_'):
 
 ---
 
-**Remember**: Ensembles often win competitions! Diversity and proper tuning are key to success!
+**Try next:** Ensembles often win competitions! Diversity and proper tuning are key to success!
 

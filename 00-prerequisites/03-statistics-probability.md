@@ -1,6 +1,6 @@
 # Statistics and Probability for Machine Learning
 
-Comprehensive guide to statistical concepts and probability theory essential for understanding and evaluating machine learning models.
+This guide covers statistical concepts and probability theory essential for understanding and evaluating machine learning models.
 
 ## Table of Contents
 
@@ -1534,5 +1534,5 @@ Perform t-tests to compare model performances.
 
 ---
 
-**Remember**: Statistics helps you understand and evaluate your ML models!
+**Try next:** Statistics helps you understand and evaluate your ML models!
 

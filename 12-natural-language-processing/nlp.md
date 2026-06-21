@@ -1,6 +1,6 @@
 # Natural Language Processing Complete Guide
 
-Comprehensive guide to processing and understanding human language.
+This guide covers processing and understanding human language.
 
 ## CNN and RNN curriculum map (this guide)
 
@@ -840,5 +840,5 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name, num_label
 - Explore advanced NLP tasks (NER, QA, translation)
 - Move to [13-model-deployment](../13-model-deployment/README.md)
 
-**Remember**: NLP is rapidly evolving with transformers! Use pre-trained models when possible.
+**Try next:** NLP is rapidly evolving with transformers! Use pre-trained models when possible.
 

@@ -1,6 +1,6 @@
 # Time Series Analysis - Complete Guide
 
-Comprehensive guide to time series analysis and forecasting using statistical and deep learning methods.
+This guide covers time series analysis and forecasting using statistical and deep learning methods.
 
 ## Table of Contents
 
@@ -1050,5 +1050,5 @@ print(f"SMAPE: {smape:.2f}%")
 - Learn about anomaly detection in time series
 - Move to next module or practice projects
 
-**Remember**: Time series analysis requires understanding temporal dependencies. Always respect the time order of your data!
+**Try next:** Time series analysis requires understanding temporal dependencies. Always respect the time order of your data!
 

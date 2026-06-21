@@ -102,5 +102,5 @@ Practical goal: pick a threshold that hits a target like “Recall >= 0.85 at Pr
 
 ---
 
-**Remember**: Advanced techniques help with extreme imbalance!
+**Try next:** Advanced techniques help with extreme imbalance!
 

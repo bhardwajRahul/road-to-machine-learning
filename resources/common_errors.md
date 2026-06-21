@@ -540,5 +540,5 @@ def train_model_safe(X_train, y_train):
 
 ---
 
-**Remember**: Most errors come from data issues. Always inspect and validate your data first!
+**Try next:** Most errors come from data issues. Always inspect and validate your data first!
 

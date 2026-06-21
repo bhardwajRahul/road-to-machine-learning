@@ -42,7 +42,7 @@ STAGE 5: DEEP LEARNING FUNDAMENTALS (2 months full-time, 4 months part-time)
 STAGE 6: SPECIALIZED DEEP LEARNING (3-4 months full-time, 6-8 months part-time)
  Computer Vision
  Natural Language Processing
- Time Series Analysis
+ Time Series Analysis (Module 15 — optional branch, can follow Stage 5–6)
     ↓
 STAGE 7: GENERATIVE AI & MODERN LLMs (1-2 months full-time, 2-4 months part-time)
  Prompt Engineering
@@ -299,5 +299,5 @@ Use this to track where you are:
 
 ---
 
-**Remember**: The journey of a thousand miles begins with a single step. Start today! 
+**Try next:** The journey of a thousand miles begins with a single step. Start today! 
 

@@ -671,5 +671,5 @@ result = agent.run("Write Python code to sort a list")
 
 ---
 
-**Remember**: Langchain makes it easy to build powerful AI applications. Start simple, then gradually add complexity!
+**Try next:** Langchain makes it easy to build powerful AI applications. Start simple, then gradually add complexity!
 
