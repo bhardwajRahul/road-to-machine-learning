@@ -121,6 +121,23 @@ By the end of this phase, you should be able to:
 - Set up and use Jupyter Notebooks
 - Install and manage Python packages
 
+## Foundation exit criteria (before Module 01)
+
+Do **not** start [Module 01](../01-python-for-data-science/README.md) until you can pass this gate. Weak foundations here are the main reason learners stall later.
+
+| Skill | Self-check |
+|-------|------------|
+| Python | Write a function + class that reads a CSV and handles a missing-file error |
+| Complexity | State Big-O of a single loop vs nested loop over *n* items |
+| Linear algebra | Multiply two 2×2 matrices; explain what a dot product measures |
+| Statistics | Compute mean and standard deviation; explain when median beats mean |
+| Calculus | Describe gradient descent and the role of learning rate |
+| Environment | Create a venv, `pip install` packages, open Jupyter |
+
+**Proof of work (pick one):** [Movie script capstone](01-python-basics.md#capstone-movie-script-generator) · [NumPy neural network tutorial](prerequisites-project-tutorial.md)
+
+Full job-market context: [Foundation & Job Market Readiness](../FOUNDATION_AND_JOB_READINESS.md)
+
 ##  Exercises
 
 Each module includes:

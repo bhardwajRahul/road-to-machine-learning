@@ -33,7 +33,7 @@ This guide provides clear, role-specific learning paths for different careers in
 | **Data Fundamentals** | 01 | NumPy, Pandas, Visualization, EDA | 3-4 months |
 | **SQL & Databases** | 19 | SQL, Database Fundamentals, NoSQL basics | 2-3 months |
 | **Essential Skills** | 20, 21 | Imbalanced Data, Model Explainability | 1-2 months |
-| **Total** | **4 modules** | **Complete Path** | **8-12 months** |
+| **Total** | **5 modules** | **Complete Path** | **8-12 months** |
 
 ### Essential Modules
 

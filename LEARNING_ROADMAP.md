@@ -69,6 +69,15 @@ STAGE 10: ADVANCED SPECIALIZATION (2-3 months full-time)
  Audio Processing
 ```
 
+## Job market alignment
+
+**Default stage order** is comprehensive but not optimal for every hireable role. Use [FOUNDATION_AND_JOB_READINESS.md](FOUNDATION_AND_JOB_READINESS.md) for:
+
+- **Exit gates** after Modules 00, 01, and 02–05
+- **SQL early** (Module 19 after 01) for Data Analyst and Data Scientist paths
+- **Parallel projects** starting after Stage 2
+- Portfolio and interview checklists
+
 ##  Milestone Checklist
 
 ###  Foundation Milestone (2-3 months)
@@ -90,7 +99,7 @@ STAGE 10: ADVANCED SPECIALIZATION (2-3 months full-time)
 - [ ] Understand model evaluation
 - [ ] Completed first ML project
 
-###  Advanced ML Milestone (Week 12)
+###  Advanced ML Milestone (1–2 months after ML basics)
 - [ ] Used ensemble methods
 - [ ] Performed feature engineering
 - [ ] Applied clustering
@@ -117,7 +126,7 @@ STAGE 10: ADVANCED SPECIALIZATION (2-3 months full-time)
 
 ##  Skill Progression
 
-### Beginner Level (Weeks 1-8)
+### Beginner Level (after Stage 2)
 **Skills:**
 - Python programming
 - Data manipulation
@@ -129,7 +138,7 @@ STAGE 10: ADVANCED SPECIALIZATION (2-3 months full-time)
 - Iris classification
 - Titanic survival
 
-### Intermediate Level (Weeks 9-16)
+### Intermediate Level (after Stages 3–4)
 **Skills:**
 - Feature engineering
 - Ensemble methods
@@ -141,7 +150,7 @@ STAGE 10: ADVANCED SPECIALIZATION (2-3 months full-time)
 - Recommendation system
 - Fraud detection
 
-### Advanced Level (Weeks 17-24+)
+### Advanced Level (after Stages 5–8)
 **Skills:**
 - Deep learning
 - Computer vision

@@ -2,6 +2,8 @@
 
 Not sure where to begin? Pick the path that matches your time and goal.
 
+> **Do not follow folder numbers 00→25 in order.** Module folders are for organization; **stages** are the teaching sequence. Read [FOUNDATION_AND_JOB_READINESS.md](FOUNDATION_AND_JOB_READINESS.md) for exit gates, role paths, and job-market timing (especially **SQL early** for analyst/data scientist roles).
+
 ## If you have 30 minutes
 
 Do your first ML project today.
@@ -34,6 +36,19 @@ The main README estimates **15–22 months** full-time for the complete path. QU
 1. Open [resources/career_roadmap_guide.md](resources/career_roadmap_guide.md)
 2. Pick a target role (ML Engineer, Data Scientist, MLOps, and others)
 3. Follow the modules listed for that role in the main README career table
+4. Read [FOUNDATION_AND_JOB_READINESS.md](FOUNDATION_AND_JOB_READINESS.md) for **exit gates** and portfolio milestones
+
+**Data Analyst / Data Scientist:** Start [Module 19 SQL](19-sql-database-fundamentals/README.md) right after Module 01, not after GenAI.
+
+## Projects run in parallel (not only at the end)
+
+| When | What |
+|------|------|
+| After Stage 2 (modules 02–05) | Begin [beginner projects](16-projects-beginner/README.md) (code included) |
+| After Stages 3–4 | [Intermediate project briefs](17-projects-intermediate/README.md) |
+| After deployment skills | [Advanced projects + capstones](18-projects-advanced/README.md) |
+
+Stage 9 in the roadmap is **depth**, not “start projects here.”
 
 ## Setup (every path)
 
@@ -60,7 +75,7 @@ Install dependencies from the **repository root**. Individual project folders ma
 | Stage 5 | 09–10 | Neural networks, PyTorch/TensorFlow |
 | Stage 6 | 11–12 | Computer vision, NLP |
 | Stage 7 | 25 | Generative AI and LLMs |
-| Stage 7.5 | 19–21 | SQL, imbalanced data, explainability |
+| Stage 7.5 | 19–21 | SQL, imbalanced data, explainability *(analysts: do 19 after Stage 1)* |
 | Stage 8 | 13–14 | Deployment, MLOps |
 | Stage 9 | 16–18 | Projects (start beginner projects after Stage 2) |
 | Stage 10 | 22–24 | RL, graphs, audio (electives) |
@@ -80,4 +95,5 @@ Module **15** (time series) fits after Stage 5 or 6 depending on your goals.
 - Main hub: [README.md](README.md)
 - First project walkthrough: [GETTING_STARTED.md](GETTING_STARTED.md)
 - Visual roadmap: [LEARNING_ROADMAP.md](LEARNING_ROADMAP.md)
+- Foundation gates & job market: [FOUNDATION_AND_JOB_READINESS.md](FOUNDATION_AND_JOB_READINESS.md)
 - Study Hub (read lessons in browser): [Nabid In Motion](https://github.com/NabidAlam/nabidinmotion)
