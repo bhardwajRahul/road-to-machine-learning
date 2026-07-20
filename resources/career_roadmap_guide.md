@@ -802,7 +802,7 @@ This guide provides clear, role-specific learning paths for different careers in
 
 **Role Focus**: Design, build, and operate APIs and services that clients and other systems depend on. You care about request lifecycle, data integrity, security, observability, and graceful failure. This path is **language-agnostic** at the concept layer and pairs with hands-on Node/Postgres lessons in the Full-Stack Track.
 
-**Start here:** [Backend Engineering from First Principles](backend_engineering_roadmap.md)
+**Start here:** [Backend Engineer Roadmap](backend_engineering_roadmap.md)
 
 ### Core learning path
 
@@ -833,7 +833,7 @@ This guide provides clear, role-specific learning paths for different careers in
 
 | Area | Files |
 |------|-------|
-| **Roadmap** | [Backend Engineering from First Principles](backend_engineering_roadmap.md) |
+| **Roadmap** | [Backend Engineer Roadmap](backend_engineering_roadmap.md) |
 | **Architecture** | [System Design for Beginners](../system-design/README.md) |
 | **Hands-on** | [Full-Stack Track Phases B, C, E](full_stack_track/README.md) |
 | **ML APIs** | [Model Deployment](../13-model-deployment/README.md), [ML System Design Guide](ml_system_design_guide.md) |
