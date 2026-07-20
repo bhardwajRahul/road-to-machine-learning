@@ -1,6 +1,6 @@
-# Backend Engineering from First Principles
+# Backend Engineer Roadmap
 
-A language-agnostic path for building production APIs and services. This guide maps **what to learn**, **where it already lives in this repo**, **what is still thin**, and **free resources** you can use today.
+A clear path from HTTP to production APIs and services. This guide maps **what to learn**, **where it already lives in this repo**, **what is still thin**, and **free resources** you can use today.
 
 **Who this is for:** learners who want backend engineering as a first-class skill, not only as a side effect of ML or full-stack study.
 
@@ -39,7 +39,7 @@ Pair this roadmap with the in-repo tracks above. Do not read system design and N
 
 Read this phase once before you touch frameworks.
 
-### 1. Roadmap for backend from first principles
+### 1. How this roadmap is organized
 
 **Goal:** See the full journey before you optimize for tools.
 
@@ -82,11 +82,11 @@ A backend accepts requests, enforces rules, reads and writes durable state, and 
 - [MDN: What is a web server?](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction)
 - [Microsoft Learn: What is an API?](https://learn.microsoft.com/en-us/training/modules/introduction-to-web-apis/)
 
-### 4. Benefits of learning backend engineering from first principles
+### 4. Why learn the request path before frameworks
 
 **Goal:** Resist tutorial-driven learning that skips the request lifecycle.
 
-First-principles backend work means you can debug any stack: you know where routing, validation, auth, and persistence sit even when the framework magic breaks.
+Strong backend work means you can debug any stack: you know where routing, validation, auth, and persistence sit even when the framework magic breaks.
 
 **Why it matters for ML learners:** model serving is still a backend problem (latency, batching, auth, observability). See [Module 13](../13-model-deployment/README.md).
 
